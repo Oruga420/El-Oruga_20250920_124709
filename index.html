@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>El Oruga</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/oruga-ui.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<nav class="navbar" aria-label="Primary">
+				<div class="logo"><a href="/">El Oruga</a></div>
+				<ul class="menu">
+					<li><a href="/">Home</a></li>
+					<li><a href="/apps">Apps</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+				<div class="socials" role="group" aria-label="Social links">
+					<a href="https://twitter.com/YOUR" aria-label="Twitter" target="_blank" rel="noopener">X</a>
+					<a href="https://instagram.com/YOUR" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+					<a href="https://github.com/YOUR" aria-label="GitHub" target="_blank" rel="noopener">GH</a>
+					<a href="https://www.linkedin.com/in/YOUR" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+					<a href="https://www.tiktok.com/@YOUR" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+					<a href="https://www.youtube.com/@YOUR" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+					<a href="https://discord.gg/YOUR" aria-label="Discord" target="_blank" rel="noopener">DC</a>
+				</div>
+			</nav>
+
+			<section id="main">
+				<header class="hero" style="display:grid; gap:1.5rem; justify-items:center; text-align:center;">
+					<span class="avatar"><img src="images/oruga.jpg" alt="Portrait of El Oruga" /></span>
+					<h1>El Oruga</h1>
+					<p>Building automations, AI copilots, and creative tools for growers and makers.</p>
+					<div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
+						<a class="btn" href="#featured">Featured</a>
+						<a class="btn" href="/apps">Explore Apps</a>
+					</div>
+				</header>
+
+				<section id="categories" aria-label="Explore by category">
+					<h2 style="text-align:center; margin-bottom:0.75rem;">Categories</h2>
+					<div id="category-chips" class="chips"></div>
+				</section>
+
+				<section id="featured" aria-label="Featured apps" style="margin-top:2rem;">
+					<h2 style="text-align:center; margin-bottom:1rem;">Featured Apps</h2>
+					<div id="featured-carousel"></div>
+				</section>
+
+				<section id="recent-apps" aria-label="Recent releases" style="margin-top:2rem;">
+					<h2 style="text-align:center; margin-bottom:1rem;">Latest Drops</h2>
+					<div id="apps-grid" class="grid"></div>
+				</section>
+			</section>
+
+			<footer id="footer">
+				<div class="socials" role="group" aria-label="Social links">
+					<a href="https://twitter.com/YOUR" aria-label="Twitter" target="_blank" rel="noopener">X</a>
+					<a href="https://instagram.com/YOUR" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+					<a href="https://github.com/YOUR" aria-label="GitHub" target="_blank" rel="noopener">GH</a>
+					<a href="https://www.linkedin.com/in/YOUR" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+					<a href="https://www.tiktok.com/@YOUR" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+					<a href="https://www.youtube.com/@YOUR" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+					<a href="https://discord.gg/YOUR" aria-label="Discord" target="_blank" rel="noopener">DC</a>
+				</div>
+				<ul class="copyright">
+					<li>&copy; <span id="year"></span> Oruga de la mora</li>
+					<li>Cannabis Grower @ <a href="http://orugasfarm.com">OrugasFarm</a></li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<div class="social-rail" aria-label="Social links">
+			<a href="https://twitter.com/YOUR" aria-label="Twitter" target="_blank" rel="noopener">X</a>
+			<a href="https://instagram.com/YOUR" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+			<a href="https://github.com/YOUR" aria-label="GitHub" target="_blank" rel="noopener">GH</a>
+			<a href="https://www.linkedin.com/in/YOUR" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+			<a href="https://www.tiktok.com/@YOUR" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+			<a href="https://www.youtube.com/@YOUR" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+			<a href="https://discord.gg/YOUR" aria-label="Discord" target="_blank" rel="noopener">DC</a>
+		</div>
+
+		<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+		<script type="module" src="/assets/js/slider.js"></script>
+		<script type="module" src="/assets/js/apps.js"></script>
+		<script>
+			if ('addEventListener' in window) {
+				window.addEventListener('load', function () {
+					document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+				});
+				document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+			}
+		</script>
+
+	</body>
+</html>

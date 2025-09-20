@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App Detail — El Oruga</title>
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/oruga-ui.css" />
+</head>
+<body>
+  <div id="wrapper">
+    <nav class="navbar">
+      <div class="logo"><a href="/">El Oruga</a></div>
+      <ul class="menu">
+        <li><a href="/apps">Apps</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+      <div class="socials" role="group" aria-label="Social links">
+        <a href="https://twitter.com/YOUR" aria-label="Twitter" target="_blank" rel="noopener">X</a>
+        <a href="https://instagram.com/YOUR" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://github.com/YOUR" aria-label="GitHub" target="_blank" rel="noopener">GH</a>
+        <a href="https://www.linkedin.com/in/YOUR" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+        <a href="https://www.tiktok.com/@YOUR" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+        <a href="https://www.youtube.com/@YOUR" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+        <a href="https://discord.gg/YOUR" aria-label="Discord" target="_blank" rel="noopener">DC</a>
+      </div>
+    </nav>
+
+    <main id="app-root" style="padding: 1rem; max-width: 900px; margin: 0 auto;"></main>
+
+    <footer id="footer">
+      <div class="socials" role="group" aria-label="Social links">
+        <a href="https://twitter.com/YOUR" aria-label="Twitter" target="_blank" rel="noopener">X</a>
+        <a href="https://instagram.com/YOUR" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="https://github.com/YOUR" aria-label="GitHub" target="_blank" rel="noopener">GH</a>
+        <a href="https://www.linkedin.com/in/YOUR" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+        <a href="https://www.tiktok.com/@YOUR" aria-label="TikTok" target="_blank" rel="noopener">TT</a>
+        <a href="https://www.youtube.com/@YOUR" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+        <a href="https://discord.gg/YOUR" aria-label="Discord" target="_blank" rel="noopener">DC</a>
+      </div>
+      <ul class="copyright">
+        <li>&copy; <span id="year"></span> El Oruga</li>
+        <li><a href="mailto:hello@orugasfarm.com">hello@orugasfarm.com</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="/assets/js/detail.js"></script>
+</body>
+</html>
