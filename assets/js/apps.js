@@ -1,4 +1,4 @@
-// apps.js — render categories, cards, search/filters, and featured slider input
+// apps.js - render categories, cards, search/filters, and featured slider input
 const state = { q: '', category: '', tech: '' };
 let APPS = [];
 
@@ -130,7 +130,7 @@ function cardHTML(app) {
         <h3>${app.title}</h3>
         <p>${app.tagline || ''}</p>
         <div class="tags">${tags}</div>
-        <div style="margin-top:0.6rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <div class="card-actions">
           <a href="/apps/app.html?slug=${app.slug}" class="btn">Details</a>
           ${live}${repo}
         </div>
@@ -142,24 +142,43 @@ function cardHTML(app) {
 function renderGrid(apps) {
   const root = $('#apps-grid');
   if (!root) return;
-  root.innerHTML = apps.length ? apps.map(cardHTML).join('') : '<p>No results. Try a different filter.</p>';
+
+  if (!apps.length) {
+    root.innerHTML = '<p class="empty-state">No results. Try a different filter.</p>';
+    return;
+  }
+
+  root.innerHTML = `
+    <div class="swiper apps-swiper">
+      <div class="swiper-wrapper">
+        ${apps.map((a) => `<div class="swiper-slide">${cardHTML(a)}</div>`).join('')}
+      </div>
+      <div class="swiper-pagination" aria-hidden="true"></div>
+      <div class="swiper-button-prev" aria-label="Previous apps"></div>
+      <div class="swiper-button-next" aria-label="Next apps"></div>
+    </div>
+  `;
+
+  if (window.initGallerySwiper) {
+    window.initGallerySwiper();
+  }
 }
 
 function renderFeatured(apps) {
   const root = $('#featured-carousel');
   if (!root) return;
   root.innerHTML = `
-    <div class="swiper">
+    <div class="swiper featured-swiper">
       <div class="swiper-wrapper">
         ${apps.map((a) => `<div class="swiper-slide">${cardHTML(a)}</div>`).join('')}
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev" aria-label="Previous"></div>
-      <div class="swiper-button-next" aria-label="Next"></div>
+      <div class="swiper-pagination" aria-hidden="true"></div>
+      <div class="swiper-button-prev" aria-label="Previous featured app"></div>
+      <div class="swiper-button-next" aria-label="Next featured app"></div>
     </div>
   `;
-  if (window.initSwiper) {
-    window.initSwiper();
+  if (window.initFeaturedSwiper) {
+    window.initFeaturedSwiper();
   }
 }
 
@@ -168,3 +187,4 @@ if (document.readyState === 'loading') {
 } else {
   boot();
 }
+
