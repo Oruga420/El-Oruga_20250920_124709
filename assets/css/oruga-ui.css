@@ -45,12 +45,12 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%),
-    radial-gradient(circle at 100% 75%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%),
-    radial-gradient(circle at 0% 75%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%);
-  background-size: 120px 138px;
-  background-position: 60px 0, 0 0, 120px 0;
-  opacity: 0.38;
+    linear-gradient(30deg, rgba(255, 255, 255, 0.18) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.18) 87.5%, rgba(255, 255, 255, 0.18)),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.18) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.18) 87.5%, rgba(255, 255, 255, 0.18)),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 2%, transparent 0);
+  background-size: 90px 156px;
+  background-position: 0 0, 0 0, 45px 78px;
+  opacity: 0.32;
   mix-blend-mode: screen;
   pointer-events: none;
   z-index: 0;
@@ -125,35 +125,62 @@ main {
 .navbar .socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.navbar .socials a,
+.navbar .socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.navbar .socials a i {
+  font-size: 1rem;
+}
+
+.navbar .socials a:hover,
+.navbar .socials a:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -18px rgba(6, 11, 31, 0.9);
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
 .social-rail a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.12);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.32);
   color: var(--text-primary);
-  font-weight: 600;
-  text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.navbar .socials a:hover,
-.social-rail a:hover {
+.social-rail a:hover,
+.social-rail a:focus-visible {
   transform: translateY(-4px);
   box-shadow: 0 16px 32px -18px rgba(6, 11, 31, 0.9);
 }
 
-.navbar .socials a:focus-visible,
-.social-rail a:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 4px;
+.social-rail a .social-label {
+  display: none;
+}
+
+.socials .social-label {
+  font-size: 0.74rem;
 }
 
 .hero {
