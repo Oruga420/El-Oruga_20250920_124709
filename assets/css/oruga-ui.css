@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    linear-gradient(115deg, var(--bg-orange) 0%, var(--bg-pink) 30%, var(--bg-teal) 65%, var(--bg-indigo) 100%);
+    linear-gradient(120deg, #ff8a4b 0%, #1edbff 50%, #ff4fff 100%);
   position: relative;
   padding: clamp(24px, 6vw, 64px);
 }
@@ -44,10 +44,13 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background:
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 60px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 60px);
-  opacity: 0.35;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%),
+    radial-gradient(circle at 100% 75%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%),
+    radial-gradient(circle at 0% 75%, rgba(255, 255, 255, 0.25) 16%, transparent 16.5%);
+  background-size: 120px 138px;
+  background-position: 60px 0, 0 0, 120px 0;
+  opacity: 0.38;
   mix-blend-mode: screen;
   pointer-events: none;
   z-index: 0;
@@ -568,3 +571,4 @@ main > header {
   text-align: center;
   color: var(--text-muted);
 }
+
