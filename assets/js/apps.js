@@ -2,6 +2,8 @@
 const state = { q: '', category: '', tech: '' };
 let APPS = [];
 
+const CARD_GRADIENTS = ['card-gradient-sunrise', 'card-gradient-cyan', 'card-gradient-fuchsia', 'card-gradient-amber'];
+
 const $ = (sel, parent = document) => parent.querySelector(sel);
 const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel));
 
@@ -112,11 +114,15 @@ function filterApps() {
   }).sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 }
 
-function cardHTML(app) {
-  const tags = (app.tags || [])
-    .slice(0, 3)
-    .map((t) => `<span class="tag">${t}</span>`)
-    .join('');
+function getGradientClass(index) {
+  return CARD_GRADIENTS[index % CARD_GRADIENTS.length];
+}
+
+function cardHTML(app, index = 0) {
+  const gradientClass = getGradientClass(index);
+  const category = app.category || (app.tags && app.tags[0]) || 'Featured';
+  const summary = app.tagline || app.shortDescription || '';
+  const tagLine = (app.tags || []).slice(0, 2).join(' • ');
   const live = app.liveUrl
     ? `<a href="${app.liveUrl}" class="btn" target="_blank" rel="noopener">Live</a>`
     : '';
@@ -124,12 +130,15 @@ function cardHTML(app) {
     ? `<a href="${app.repoUrl}" class="btn" target="_blank" rel="noopener">Repo</a>`
     : '';
   return `
-    <article class="card">
-      <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
-      <div class="content">
+    <article class="card ${gradientClass}">
+      <div class="card-media">
+        <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <span class="card-category">${category}</span>
         <h3>${app.title}</h3>
-        <p>${app.tagline || ''}</p>
-        <div class="tags">${tags}</div>
+        <p class="card-tagline">${summary}</p>
+        ${tagLine ? `<p class="card-tags">${tagLine}</p>` : ''}
         <div class="card-actions">
           <a href="/apps/app.html?slug=${app.slug}" class="btn">Details</a>
           ${live}${repo}
@@ -151,7 +160,7 @@ function renderGrid(apps) {
   root.innerHTML = `
     <div class="swiper apps-swiper">
       <div class="swiper-wrapper">
-        ${apps.map((a) => `<div class="swiper-slide">${cardHTML(a)}</div>`).join('')}
+        ${apps.map((a, index) => `<div class="swiper-slide">${cardHTML(a, index)}</div>`).join('')}
       </div>
       <div class="swiper-pagination" aria-hidden="true"></div>
       <div class="swiper-button-prev" aria-label="Previous apps"></div>
@@ -170,7 +179,7 @@ function renderFeatured(apps) {
   root.innerHTML = `
     <div class="swiper featured-swiper">
       <div class="swiper-wrapper">
-        ${apps.map((a) => `<div class="swiper-slide">${cardHTML(a)}</div>`).join('')}
+        ${apps.map((a, index) => `<div class="swiper-slide">${cardHTML(a, index)}</div>`).join('')}
       </div>
       <div class="swiper-pagination" aria-hidden="true"></div>
       <div class="swiper-button-prev" aria-label="Previous featured app"></div>

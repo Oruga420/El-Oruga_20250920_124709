@@ -112,12 +112,14 @@
 	body {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/newbg.jpg");
-		background-image: -webkit-linear-gradient(60deg, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0.35)), url("../../images/newbg.jpg");
-		background-image: -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/newbg.jpg");
-		background-size: 100px 100px, cover,				cover;
-		background-position: top left,		center center,		bottom center;
-		background-attachment: fixed,			fixed,				fixed;
+		background-image: url("../../images/newbg.svg"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+		background-image: url("../../images/newbg.svg"), -webkit-linear-gradient(60deg, rgba(0, 0, 0, 0.5) 5%, rgba(0, 0, 0, 0.35));
+		background-image: url("../../images/newbg.svg"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+		background-image: url("../../images/newbg.svg"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+		background-size: 90px 104px, cover;
+		background-repeat: repeat,			no-repeat;
+		background-position: top left, center center;
+		background-attachment: fixed, fixed;
 	}
 
 		body:after {
