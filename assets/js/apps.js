@@ -4,6 +4,41 @@ let APPS = [];
 
 const CARD_GRADIENTS = ['card-gradient-sunrise', 'card-gradient-cyan', 'card-gradient-fuchsia', 'card-gradient-amber'];
 
+const FEATURED_SLIDES = [
+  {
+    title: 'Sesh Image Gen',
+    subtitle: 'Generate on-brand visuals in a tap',
+    category: 'Creator Tools',
+    image: 'images/sesh-image-gen.jpg',
+    href: 'https://sesh-image-gen.vercel.app/image-gen',
+    external: true,
+  },
+  {
+    title: 'Tetris XR',
+    subtitle: 'Tetris with motion-powered twists',
+    category: 'Games',
+    image: 'images/tetris.png',
+    href: 'https://tetris-20250303-131918.vercel.app/',
+    external: true,
+  },
+  {
+    title: 'Video to Audio Transformer',
+    subtitle: 'Strip audio tracks from clips in seconds',
+    category: 'Utilities',
+    image: 'images/video2audio.jpg',
+    href: 'https://video-to-audio-transformer.vercel.app/',
+    external: true,
+  },
+  {
+    title: 'One Piece 3D Chess',
+    subtitle: 'Sail the Grand Line on a 3D board',
+    category: 'Games',
+    image: 'images/oneppiece.png',
+    href: 'https://onepiece-3d-chess.vercel.app/',
+    external: true,
+  },
+];
+
 const $ = (sel, parent = document) => parent.querySelector(sel);
 const $$ = (sel, parent = document) => Array.from(parent.querySelectorAll(sel));
 
@@ -23,7 +58,7 @@ async function boot() {
 
   buildFilters(APPS);
   bindFilterInputs();
-  renderFeatured(APPS.filter((a) => a.status === 'live').slice(0, 8));
+  renderFeatured();
   renderGrid(filterApps());
 }
 
@@ -129,17 +164,10 @@ function cardHTML(app, index = 0) {
   const repo = app.repoUrl
     ? `<a href="${app.repoUrl}" class="btn" target="_blank" rel="noopener">Repo</a>`
     : '';
-  const fallbackSlugLink = `/apps/app.html?slug=${app.slug}`;
-  const preferredLink = app.linkUrl || app.liveUrl || '';
-  const useExternal = preferredLink && !preferredLink.includes('example.com');
-  const imageHref = useExternal ? preferredLink : fallbackSlugLink;
-  const imageAttrs = useExternal ? ' target="_blank" rel="noopener"' : '';
   return `
     <article class="card ${gradientClass}">
       <div class="card-media">
-        <a href="${imageHref}"${imageAttrs}>
-          <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
-        </a>
+        <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
       </div>
       <div class="card-body">
         <span class="card-category">${category}</span>
@@ -147,7 +175,7 @@ function cardHTML(app, index = 0) {
         <p class="card-tagline">${summary}</p>
         ${tagLine ? `<p class="card-tags">${tagLine}</p>` : ''}
         <div class="card-actions">
-          <a href="${fallbackSlugLink}" class="btn">Details</a>
+          <a href="/apps/app.html?slug=${app.slug}" class="btn">Details</a>
           ${live}${repo}
         </div>
       </div>
@@ -180,19 +208,56 @@ function renderGrid(apps) {
   }
 }
 
-function renderFeatured(apps) {
+function renderFeatured() {
   const root = $('#featured-carousel');
   if (!root) return;
+
+  const slides = FEATURED_SLIDES.length
+    ? FEATURED_SLIDES
+    : APPS.filter((a) => a.status === 'live').slice(0, 4).map((app) => ({
+        title: app.title,
+        subtitle: app.tagline || app.shortDescription || '',
+        category: app.category || '',
+        image: app.coverImage,
+        href: `/apps/app.html?slug=${app.slug}`,
+        external: false,
+      }));
+
+  if (!slides.length) {
+    root.innerHTML = '<p class="empty-state">No featured apps yet.</p>';
+    return;
+  }
+
   root.innerHTML = `
     <div class="swiper featured-swiper">
       <div class="swiper-wrapper">
-        ${apps.map((a, index) => `<div class="swiper-slide">${cardHTML(a, index)}</div>`).join('')}
+        ${slides
+          .map((slide, index) => {
+            const attrs = slide.external ? ' target="_blank" rel="noopener"' : '';
+            return `
+              <div class="swiper-slide">
+                <article class="card ${getGradientClass(index)} featured-card">
+                  <div class="card-media">
+                    <a href="${slide.href}"${attrs}>
+                      <img src="${slide.image}" alt="${slide.title}" loading="lazy" />
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    ${slide.category ? `<span class="card-category">${slide.category}</span>` : ''}
+                    <h3>${slide.title}</h3>
+                    ${slide.subtitle ? `<p class="card-tagline">${slide.subtitle}</p>` : ''}
+                  </div>
+                </article>
+              </div>`;
+          })
+          .join('')}
       </div>
       <div class="swiper-pagination" aria-hidden="true"></div>
-      <div class="swiper-button-prev" aria-label="Previous featured app"></div>
-      <div class="swiper-button-next" aria-label="Next featured app"></div>
+      <div class="swiper-button-prev" aria-label="Previous featured"></div>
+      <div class="swiper-button-next" aria-label="Next featured"></div>
     </div>
   `;
+
   if (window.initFeaturedSwiper) {
     window.initFeaturedSwiper();
   }

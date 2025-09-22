@@ -7,21 +7,10 @@
     "coverImage": "/assets/images/apps/smart-zap-agent/cover.webp",
     "shortDescription": "Run, audit, and tweak workflows in plain English.",
     "longDescription": "Smart Zap Agent lets SMBs automate ops using natural language. Ship flows, review logs, and iterate fast.",
-    "features": [
-      "One-click workflows",
-      "Promptable",
-      "Audit logs"
-    ],
-    "tech": [
-      "Next.js",
-      "OpenAI",
-      "Zapier"
-    ],
+    "features": ["One-click workflows", "Promptable", "Audit logs"],
+    "tech": ["Next.js", "OpenAI", "Zapier"],
     "category": "Automation",
-    "tags": [
-      "No-code",
-      "Agents"
-    ],
+    "tags": ["No-code", "Agents"],
     "liveUrl": "https://example.com",
     "repoUrl": "https://github.com/your/repo",
     "status": "live",
@@ -35,21 +24,10 @@
     "coverImage": "/assets/images/apps/sesh-social-scheduler/cover.webp",
     "shortDescription": "Calendar + AI captions + multi-platform posting.",
     "longDescription": "Generate captions, schedule content, and post across platforms. Metrics incoming.",
-    "features": [
-      "AI captions",
-      "Bulk upload",
-      "Hashtag helper"
-    ],
-    "tech": [
-      "Supabase",
-      "OpenAI",
-      "Next.js"
-    ],
+    "features": ["AI captions", "Bulk upload", "Hashtag helper"],
+    "tech": ["Supabase", "OpenAI", "Next.js"],
     "category": "Creator Tools",
-    "tags": [
-      "Scheduler",
-      "Content"
-    ],
+    "tags": ["Scheduler", "Content"],
     "liveUrl": "https://example.com",
     "repoUrl": "https://github.com/your/repo",
     "status": "beta",
@@ -63,130 +41,11 @@
     "coverImage": "/assets/images/apps/chrome-scrape-buddy/cover.webp",
     "shortDescription": "Scrape pages, clean data, export CSV.",
     "longDescription": "Highlight, extract, and structure data with in-browser AI assistance.",
-    "features": [
-      "Visual select",
-      "Schema detect",
-      "CSV/JSON export"
-    ],
-    "tech": [
-      "Chrome Ext",
-      "Vite",
-      "OpenAI"
-    ],
+    "features": ["Visual select", "Schema detect", "CSV/JSON export"],
+    "tech": ["Chrome Ext", "Vite", "OpenAI"],
     "category": "Utilities",
-    "tags": [
-      "Scraping",
-      "No-code"
-    ],
+    "tags": ["Scraping", "No-code"],
     "status": "dev",
     "publishedAt": "2025-05-01"
-  },
-  {
-    "id": "4",
-    "slug": "sesh-image-gen",
-    "title": "Sesh Image Gen",
-    "tagline": "Generate on-brand visuals in a tap",
-    "coverImage": "/images/sesh-image-gen.jpg",
-    "shortDescription": "Quick prompts to on-brand art for Sesh campaigns.",
-    "longDescription": "Sesh Image Gen lets the team spin up on-brand visuals in seconds. Feed prompts, tweak palettes, and export assets tuned for campaigns without leaving the browser.",
-    "features": [
-      "Prompt templates",
-      "Brand color presets",
-      "Instant exports"
-    ],
-    "tech": [
-      "Next.js",
-      "OpenAI",
-      "Tailwind"
-    ],
-    "category": "Creator Tools",
-    "tags": [
-      "AI",
-      "Branding"
-    ],
-    "liveUrl": "https://sesh-image-gen.vercel.app/image-gen",
-    "status": "live",
-    "publishedAt": "2025-06-01"
-  },
-  {
-    "id": "5",
-    "slug": "tetris-xr",
-    "title": "Tetris XR",
-    "tagline": "Tetris with motion-powered twists",
-    "coverImage": "/images/tetris.png",
-    "shortDescription": "Spin blocks with gestures and race the clock.",
-    "longDescription": "A kinetic take on the classic. Tetris XR layers motion controls, haptics, and reactive audio for a fresh arcade loop you can play in the browser.",
-    "features": [
-      "Gesture controls",
-      "Adaptive speed curve",
-      "Arcade leaderboard"
-    ],
-    "tech": [
-      "Three.js",
-      "WebGL",
-      "Next.js"
-    ],
-    "category": "Games",
-    "tags": [
-      "Arcade",
-      "XR"
-    ],
-    "liveUrl": "https://tetris-20250303-131918.vercel.app/",
-    "status": "live",
-    "publishedAt": "2025-06-03"
-  },
-  {
-    "id": "6",
-    "slug": "video2audio-transformer",
-    "title": "Video to Audio Transformer",
-    "tagline": "Strip audio tracks from clips in seconds",
-    "coverImage": "/images/video2audio.jpg",
-    "shortDescription": "Upload video, grab clean audio, done.",
-    "longDescription": "Drop in any video and instantly download a clean audio track. Built for creators repurposing clips for podcasts, reels, or sample packs.",
-    "features": [
-      "Drag + drop upload",
-      "Waveform preview",
-      "Multi-format export"
-    ],
-    "tech": [
-      "Next.js",
-      "FFmpeg",
-      "Supabase"
-    ],
-    "category": "Utilities",
-    "tags": [
-      "Audio",
-      "Conversion"
-    ],
-    "liveUrl": "https://video-to-audio-transformer.vercel.app/",
-    "status": "live",
-    "publishedAt": "2025-06-05"
-  },
-  {
-    "id": "7",
-    "slug": "onepiece-3d-chess",
-    "title": "One Piece 3D Chess",
-    "tagline": "Sail the Grand Line on a 3D board",
-    "coverImage": "/images/oneppiece.png",
-    "shortDescription": "Anime-inspired chess with powers and effects.",
-    "longDescription": "Command Straw Hat inspired pieces across a stylized 3D board, unlocking special moves and cinematic effects as you play.",
-    "features": [
-      "3D board skins",
-      "Character ultimates",
-      "Multiplayer lobbies"
-    ],
-    "tech": [
-      "Babylon.js",
-      "Next.js",
-      "WebSockets"
-    ],
-    "category": "Games",
-    "tags": [
-      "Anime",
-      "Strategy"
-    ],
-    "liveUrl": "https://onepiece-3d-chess.vercel.app/",
-    "status": "live",
-    "publishedAt": "2025-06-07"
   }
 ]
