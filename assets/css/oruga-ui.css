@@ -184,6 +184,12 @@ main {
   display: none;
 }
 
+.socials a svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
 .socials .social-label {
   font-size: 0.74rem;
 }
