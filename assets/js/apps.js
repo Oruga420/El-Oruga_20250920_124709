@@ -122,17 +122,24 @@ function cardHTML(app, index = 0) {
   const gradientClass = getGradientClass(index);
   const category = app.category || (app.tags && app.tags[0]) || 'Featured';
   const summary = app.tagline || app.shortDescription || '';
-  const tagLine = (app.tags || []).slice(0, 2).join(' • ');
+  const tagLine = (app.tags || []).slice(0, 2).join(' | ');
   const live = app.liveUrl
     ? `<a href="${app.liveUrl}" class="btn" target="_blank" rel="noopener">Live</a>`
     : '';
   const repo = app.repoUrl
     ? `<a href="${app.repoUrl}" class="btn" target="_blank" rel="noopener">Repo</a>`
     : '';
+  const fallbackSlugLink = `/apps/app.html?slug=${app.slug}`;
+  const preferredLink = app.linkUrl || app.liveUrl || '';
+  const useExternal = preferredLink && !preferredLink.includes('example.com');
+  const imageHref = useExternal ? preferredLink : fallbackSlugLink;
+  const imageAttrs = useExternal ? ' target="_blank" rel="noopener"' : '';
   return `
     <article class="card ${gradientClass}">
       <div class="card-media">
-        <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
+        <a href="${imageHref}"${imageAttrs}>
+          <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
+        </a>
       </div>
       <div class="card-body">
         <span class="card-category">${category}</span>
@@ -140,7 +147,7 @@ function cardHTML(app, index = 0) {
         <p class="card-tagline">${summary}</p>
         ${tagLine ? `<p class="card-tags">${tagLine}</p>` : ''}
         <div class="card-actions">
-          <a href="/apps/app.html?slug=${app.slug}" class="btn">Details</a>
+          <a href="${fallbackSlugLink}" class="btn">Details</a>
           ${live}${repo}
         </div>
       </div>
