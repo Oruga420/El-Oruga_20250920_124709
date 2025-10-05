@@ -22,7 +22,7 @@
                      "AI",
                      "Branding"
                  ],
-        "liveUrl":  "https://sesh-image-gen.vercel.app/image-gen",
+        "liveUrl":  "https://sesh-image-gen.vercel.app/",
         "status":  "live",
         "publishedAt":  "2025-06-01"
     },
@@ -106,5 +106,32 @@
         "liveUrl":  "https://onepiece-3d-chess.vercel.app/",
         "status":  "live",
         "publishedAt":  "2025-06-07"
+    },
+    {
+        "id":  "5",
+        "slug":  "video-slicer",
+        "title":  "Video Slicer",
+        "tagline":  "Trim and slice videos with precision",
+        "coverImage":  "/images/newbg.jpg",
+        "shortDescription":  "Cut, trim, and export video segments quickly.",
+        "longDescription":  "Video Slicer lets you trim videos down to the exact frames you need. Perfect for creating clips, highlights, or removing unwanted sections.",
+        "features":  [
+                         "Frame-accurate trimming",
+                         "Multiple format export",
+                         "Preview before download"
+                     ],
+        "tech":  [
+                     "Next.js",
+                     "FFmpeg",
+                     "React"
+                 ],
+        "category":  "Utilities",
+        "tags":  [
+                     "Video",
+                     "Editing"
+                 ],
+        "liveUrl":  "https://video-slicer-20250919-170716.vercel.app/",
+        "status":  "live",
+        "publishedAt":  "2025-06-08"
     }
 ]
