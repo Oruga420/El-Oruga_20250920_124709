@@ -1,22 +1,18 @@
 // slider.js - initialize Swiper (CDN loaded via HTML)
-function hydrateSwiper(selector, options) {
+window.initFeaturedSwiper = function initFeaturedSwiper() {
   if (!window.Swiper) {
     console.warn('Swiper library missing');
     return;
   }
 
-  document.querySelectorAll(selector).forEach((el) => {
-    if (el.swiper) {
-      el.swiper.destroy(true, true);
-    }
-    /* eslint-disable no-new */
-    new Swiper(el, options);
-    /* eslint-enable no-new */
-  });
-}
+  const swiperEl = document.querySelector('.featured-swiper');
+  if (!swiperEl) return;
 
-window.initFeaturedSwiper = function initFeaturedSwiper() {
-  hydrateSwiper('.featured-swiper', {
+  if (swiperEl.swiper) {
+    swiperEl.swiper.destroy(true, true);
+  }
+
+  const swiper = new Swiper('.featured-swiper', {
     loop: true,
     slidesPerView: 1,
     spaceBetween: 24,
@@ -29,27 +25,42 @@ window.initFeaturedSwiper = function initFeaturedSwiper() {
     navigation: {
       nextEl: '.featured-swiper .swiper-button-next',
       prevEl: '.featured-swiper .swiper-button-prev'
-    },
-    a11y: { enabled: true },
-    watchOverflow: true
+    }
   });
 };
 
 window.initGallerySwiper = function initGallerySwiper() {
-  hydrateSwiper('.apps-swiper', {
+  if (!window.Swiper) {
+    console.warn('Swiper library missing');
+    return;
+  }
+
+  const swiperEl = document.querySelector('.apps-swiper');
+  if (!swiperEl) return;
+
+  if (swiperEl.swiper) {
+    swiperEl.swiper.destroy(true, true);
+  }
+
+  new Swiper('.apps-swiper', {
     loop: false,
     slidesPerView: 'auto',
     spaceBetween: 24,
     centeredSlides: false,
     keyboard: { enabled: true },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    pagination: {
+      el: '.apps-swiper .swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.apps-swiper .swiper-button-next',
+      prevEl: '.apps-swiper .swiper-button-prev'
+    },
     breakpoints: {
       0: { spaceBetween: 16 },
       768: { spaceBetween: 24 },
       1280: { spaceBetween: 32 }
-    },
-    a11y: { enabled: true }
+    }
   });
 };
 
