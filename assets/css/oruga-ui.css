@@ -576,20 +576,24 @@ main > header {
 
 .featured-swiper .swiper-slide {
   width: 100%;
-  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.featured-swiper .card {
-  max-width: 600px;
-  margin: 0 auto;
+.featured-swiper .swiper-slide a {
+  display: block;
+  width: 100%;
+  max-width: 700px;
 }
 
-.featured-swiper .card img {
+.featured-swiper .swiper-slide img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 16px;
   object-fit: contain;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .swiper-button-prev,

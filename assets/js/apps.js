@@ -223,11 +223,22 @@ function renderFeatured(apps) {
   root.innerHTML = `
     <div class="swiper featured-swiper">
       <div class="swiper-wrapper">
-        ${apps.map((a, index) => `<div class="swiper-slide">${cardHTML(a, index)}</div>`).join('')}
+        ${apps.map((a) => {
+          const img = resolveAssetPath(a.coverImage) || resolveAssetPath('images/newbg.jpg');
+          const link = a.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(a.slug)}`);
+          const target = a.liveUrl ? ' target="_blank" rel="noopener"' : '';
+          return `
+            <div class="swiper-slide">
+              <a href="${link}"${target}>
+                <img src="${img}" alt="${a.title}" />
+              </a>
+            </div>
+          `;
+        }).join('')}
       </div>
-      <div class="swiper-pagination" aria-hidden="true"></div>
-      <div class="swiper-button-prev" aria-label="Previous featured app"></div>
-      <div class="swiper-button-next" aria-label="Next featured app"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   `;
   if (window.initFeaturedSwiper) {
