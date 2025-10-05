@@ -6,10 +6,9 @@ const SITE_ROOT = new URL('../..', import.meta.url);
 function resolveAssetPath(path) {
   if (!path) return '';
   if (/^(?:https?:|data:|blob:)/i.test(path)) return path;
-  // Handle paths starting with /
+  // Handle paths starting with / - treat as root-relative
   if (path.startsWith('/')) {
-    const normalized = path.replace(/^\/+/, '');
-    return new URL(normalized, window.location.origin + '/').href;
+    return path; // Return as-is for root-relative paths
   }
   // Handle relative paths
   const normalized = path.replace(/^\/+/, '');
