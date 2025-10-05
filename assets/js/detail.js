@@ -1,5 +1,20 @@
-// detail.js — populate app detail page from apps.json using ?slug=
+// detail.js - populate app detail page from apps.json using ?slug=
 const $ = (sel, parent = document) => parent.querySelector(sel);
+const DATA_URL = new URL('../data/apps.json', import.meta.url);
+const SITE_ROOT = new URL('../..', import.meta.url);
+
+function resolveAssetPath(path) {
+  if (!path) return '';
+  if (/^(?:https?:|data:|blob:)/i.test(path)) return path;
+  // Handle paths starting with /
+  if (path.startsWith('/')) {
+    const normalized = path.replace(/^\/+/, '');
+    return new URL(normalized, window.location.origin + '/').href;
+  }
+  // Handle relative paths
+  const normalized = path.replace(/^\/+/, '');
+  return new URL(normalized, SITE_ROOT).href;
+}
 
 async function boot() {
   const params = new URLSearchParams(location.search);
@@ -11,11 +26,14 @@ async function boot() {
 
   let apps = [];
   try {
-    const res = await fetch('/assets/data/apps.json');
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error(`Failed to fetch apps.json (${res.status})`);
     apps = await res.json();
   } catch (err) {
     console.error('Failed to load app catalog', err);
-    renderError('Unable to load app details right now.');
+    renderError(location.protocol === 'file:'
+      ? 'Run the site with a local server (e.g., `npx serve`) to load app details.'
+      : 'Unable to load app details right now.');
     return;
   }
 
@@ -25,14 +43,15 @@ async function boot() {
     return;
   }
 
-  document.title = `${app.title} — El Oruga`;
+  document.title = `${app.title} - El Oruga`;
   ensureMeta('description', app.tagline || app.shortDescription || '');
 
   const root = $('#app-root');
   if (!root) return;
+  const cover = resolveAssetPath(app.coverImage) || resolveAssetPath('images/newbg.jpg');
   root.innerHTML = `
     <header class="app-hero">
-      <img src="${app.coverImage}" alt="${app.title} cover" loading="lazy" />
+      <img src="${cover}" alt="${app.title} cover" loading="lazy" />
       <h1>${app.title}</h1>
       <p>${app.tagline || ''}</p>
       <div class="app-links">
@@ -72,7 +91,7 @@ function renderChips(title, items) {
 function renderError(message) {
   const root = $('#app-root');
   if (root) {
-    root.innerHTML = `<p>${message}</p>`;
+    root.innerHTML = `<p class="empty-state">${message}</p>`;
   }
 }
 
