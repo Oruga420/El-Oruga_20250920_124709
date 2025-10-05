@@ -213,74 +213,55 @@ function renderGrid(apps) {
   }
 }
 
-let carouselIndex = 0;
-
-function carouselPrev() {
-  const slides = document.querySelectorAll('.carousel-slide');
-  if (slides.length === 0) return;
-  carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-}
-
-function carouselNext() {
-  const slides = document.querySelectorAll('.carousel-slide');
-  if (slides.length === 0) return;
-  carouselIndex = (carouselIndex + 1) % slides.length;
-  updateCarousel();
-}
-
-function updateCarousel() {
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.carousel-dot');
-  slides.forEach((slide, i) => {
-    slide.style.display = i === carouselIndex ? 'flex' : 'none';
-  });
-  dots.forEach((dot, i) => {
-    if (i === carouselIndex) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
-  });
-}
+let FEATURED_APPS = [];
+let currentSlide = 0;
 
 function renderFeatured(apps) {
-  const root = $('#featured-carousel');
-  if (!root) return;
-  if (!apps.length) {
-    root.innerHTML = '<p class="empty-state">No featured apps yet.</p>';
-    return;
+  if (!apps || !apps.length) return;
+
+  FEATURED_APPS = apps;
+  currentSlide = 0;
+
+  showCurrentSlide();
+
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+
+  if (btnPrev) {
+    btnPrev.addEventListener('click', function() {
+      currentSlide--;
+      if (currentSlide < 0) currentSlide = FEATURED_APPS.length - 1;
+      showCurrentSlide();
+    });
   }
 
-  window.carouselPrev = carouselPrev;
-  window.carouselNext = carouselNext;
+  if (btnNext) {
+    btnNext.addEventListener('click', function() {
+      currentSlide++;
+      if (currentSlide >= FEATURED_APPS.length) currentSlide = 0;
+      showCurrentSlide();
+    });
+  }
+}
 
-  root.innerHTML = `
-    <div class="simple-carousel">
-      <div class="carousel-container">
-        ${apps.map((a) => {
-          const img = resolveAssetPath(a.coverImage) || resolveAssetPath('images/newbg.jpg');
-          const link = a.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(a.slug)}`);
-          const target = a.liveUrl ? ' target="_blank" rel="noopener"' : '';
-          return `
-            <div class="carousel-slide" style="display: none;">
-              <a href="${link}"${target}>
-                <img src="${img}" alt="${a.title}" />
-              </a>
-            </div>
-          `;
-        }).join('')}
-      </div>
-      <button onclick="carouselPrev()" class="carousel-btn carousel-prev">‹</button>
-      <button onclick="carouselNext()" class="carousel-btn carousel-next">›</button>
-      <div class="carousel-dots">
-        ${apps.map((_, i) => `<span class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="carouselIndex=${i}; updateCarousel();"></span>`).join('')}
-      </div>
+function showCurrentSlide() {
+  const container = document.getElementById('carousel-image-container');
+  if (!container || !FEATURED_APPS.length) return;
+
+  const app = FEATURED_APPS[currentSlide];
+  const img = resolveAssetPath(app.coverImage) || resolveAssetPath('images/newbg.jpg');
+  const link = app.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(app.slug)}`);
+  const target = app.liveUrl ? ' target="_blank" rel="noopener"' : '';
+
+  container.innerHTML = `
+    <div style="text-align: center;">
+      <a href="${link}"${target}>
+        <img src="${img}" alt="${app.title}" style="max-width: 700px; width: 100%; height: auto; border-radius: 16px;" />
+      </a>
+      <h3 style="color: white; margin-top: 15px;">${app.title}</h3>
+      <p style="color: rgba(255,255,255,0.8);">${app.tagline || ''}</p>
     </div>
   `;
-
-  carouselIndex = 0;
-  updateCarousel();
 }
 
 if (document.readyState === 'loading') {
