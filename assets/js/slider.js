@@ -22,9 +22,16 @@ window.initFeaturedSwiper = function initFeaturedSwiper() {
     spaceBetween: 24,
     centeredSlides: true,
     keyboard: { enabled: true },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    a11y: { enabled: true }
+    pagination: {
+      el: '.featured-swiper .swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.featured-swiper .swiper-button-next',
+      prevEl: '.featured-swiper .swiper-button-prev'
+    },
+    a11y: { enabled: true },
+    watchOverflow: true
   });
 };
 
