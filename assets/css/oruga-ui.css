@@ -570,13 +570,26 @@ main > header {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-.apps-swiper .swiper-slide,
-.featured-swiper .swiper-slide {
+.apps-swiper .swiper-slide {
   width: clamp(240px, 48vw, 320px);
 }
 
 .featured-swiper .swiper-slide {
-  width: clamp(260px, 52vw, 340px);
+  width: 100%;
+  max-width: 600px;
+}
+
+.featured-swiper .card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.featured-swiper .card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .swiper-button-prev,
