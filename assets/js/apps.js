@@ -213,6 +213,37 @@ function renderGrid(apps) {
   }
 }
 
+let carouselIndex = 0;
+
+function carouselPrev() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  if (slides.length === 0) return;
+  carouselIndex = (carouselIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+}
+
+function carouselNext() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  if (slides.length === 0) return;
+  carouselIndex = (carouselIndex + 1) % slides.length;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  slides.forEach((slide, i) => {
+    slide.style.display = i === carouselIndex ? 'flex' : 'none';
+  });
+  dots.forEach((dot, i) => {
+    if (i === carouselIndex) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
 function renderFeatured(apps) {
   const root = $('#featured-carousel');
   if (!root) return;
@@ -221,17 +252,18 @@ function renderFeatured(apps) {
     return;
   }
 
-  let currentIndex = 0;
+  window.carouselPrev = carouselPrev;
+  window.carouselNext = carouselNext;
 
   root.innerHTML = `
     <div class="simple-carousel">
-      <div class="carousel-content">
+      <div class="carousel-container">
         ${apps.map((a) => {
           const img = resolveAssetPath(a.coverImage) || resolveAssetPath('images/newbg.jpg');
           const link = a.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(a.slug)}`);
           const target = a.liveUrl ? ' target="_blank" rel="noopener"' : '';
           return `
-            <div class="carousel-slide">
+            <div class="carousel-slide" style="display: none;">
               <a href="${link}"${target}>
                 <img src="${img}" alt="${a.title}" />
               </a>
@@ -239,46 +271,16 @@ function renderFeatured(apps) {
           `;
         }).join('')}
       </div>
-      <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
-      <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+      <button onclick="carouselPrev()" class="carousel-btn carousel-prev">‹</button>
+      <button onclick="carouselNext()" class="carousel-btn carousel-next">›</button>
       <div class="carousel-dots">
-        ${apps.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
+        ${apps.map((_, i) => `<span class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="carouselIndex=${i}; updateCarousel();"></span>`).join('')}
       </div>
     </div>
   `;
 
-  const slides = root.querySelectorAll('.carousel-slide');
-  const prevBtn = root.querySelector('.carousel-prev');
-  const nextBtn = root.querySelector('.carousel-next');
-  const dots = root.querySelectorAll('.dot');
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? 'flex' : 'none';
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  prevBtn.onclick = () => {
-    currentIndex = (currentIndex - 1 + apps.length) % apps.length;
-    showSlide(currentIndex);
-  };
-
-  nextBtn.onclick = () => {
-    currentIndex = (currentIndex + 1) % apps.length;
-    showSlide(currentIndex);
-  };
-
-  dots.forEach((dot, i) => {
-    dot.onclick = () => {
-      currentIndex = i;
-      showSlide(currentIndex);
-    };
-  });
-
-  showSlide(0);
+  carouselIndex = 0;
+  updateCarousel();
 }
 
 if (document.readyState === 'loading') {

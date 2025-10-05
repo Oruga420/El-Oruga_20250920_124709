@@ -454,7 +454,7 @@ select {
   width: 100%;
 }
 
-.carousel-content {
+.carousel-container {
   position: relative;
   width: 100%;
   min-height: 400px;
@@ -521,16 +521,17 @@ select {
   margin-top: 20px;
 }
 
-.dot {
+.carousel-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.dot.active {
+.carousel-dot.active {
   background: rgba(255, 255, 255, 0.9);
   transform: scale(1.2);
 }
