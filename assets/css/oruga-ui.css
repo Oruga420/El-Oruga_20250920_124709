@@ -432,7 +432,8 @@ select {
   inset: clamp(0.5rem, 2vw, 1rem);
   border-radius: 28px;
   border: 2px dashed rgba(255, 255, 255, 0.28);
-  pointer-events: none;
+  pointer-events: none !important;
+  z-index: 0;
 }
 
 .swiper {
@@ -452,6 +453,7 @@ select {
 .simple-carousel {
   position: relative;
   width: 100%;
+  z-index: 1;
 }
 
 .carousel-container {
@@ -494,11 +496,12 @@ select {
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 9999 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  pointer-events: auto !important;
 }
 
 .carousel-btn:hover {
