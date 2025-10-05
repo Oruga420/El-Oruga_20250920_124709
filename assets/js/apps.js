@@ -220,15 +220,18 @@ function renderFeatured(apps) {
     root.innerHTML = '<p class="empty-state">No featured apps yet.</p>';
     return;
   }
+
+  let currentIndex = 0;
+
   root.innerHTML = `
-    <div class="swiper featured-swiper">
-      <div class="swiper-wrapper">
+    <div class="simple-carousel">
+      <div class="carousel-content">
         ${apps.map((a) => {
           const img = resolveAssetPath(a.coverImage) || resolveAssetPath('images/newbg.jpg');
           const link = a.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(a.slug)}`);
           const target = a.liveUrl ? ' target="_blank" rel="noopener"' : '';
           return `
-            <div class="swiper-slide">
+            <div class="carousel-slide">
               <a href="${link}"${target}>
                 <img src="${img}" alt="${a.title}" />
               </a>
@@ -236,14 +239,46 @@ function renderFeatured(apps) {
           `;
         }).join('')}
       </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+      <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+      <div class="carousel-dots">
+        ${apps.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
+      </div>
     </div>
   `;
-  if (window.initFeaturedSwiper) {
-    window.initFeaturedSwiper();
+
+  const slides = root.querySelectorAll('.carousel-slide');
+  const prevBtn = root.querySelector('.carousel-prev');
+  const nextBtn = root.querySelector('.carousel-next');
+  const dots = root.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'flex' : 'none';
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
   }
+
+  prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + apps.length) % apps.length;
+    showSlide(currentIndex);
+  };
+
+  nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % apps.length;
+    showSlide(currentIndex);
+  };
+
+  dots.forEach((dot, i) => {
+    dot.onclick = () => {
+      currentIndex = i;
+      showSlide(currentIndex);
+    };
+  });
+
+  showSlide(0);
 }
 
 if (document.readyState === 'loading') {

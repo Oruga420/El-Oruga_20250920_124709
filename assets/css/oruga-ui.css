@@ -449,6 +449,92 @@ select {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.simple-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-content {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.carousel-slide a {
+  display: block;
+  max-width: 700px;
+  width: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+}
+
 .app-hero {
   display: grid;
   gap: 1.25rem;
