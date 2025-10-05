@@ -605,6 +605,14 @@ main > header {
   border: 1px solid rgba(255, 255, 255, 0.32);
   color: var(--text-primary);
   box-shadow: 0 18px 32px -22px rgba(6, 11, 31, 0.85);
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .swiper-button-prev::after,
