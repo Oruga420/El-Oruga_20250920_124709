@@ -19,7 +19,7 @@
 			<nav class="navbar" aria-label="Primary">
 				<div class="logo"><a href="./">El Oruga</a></div>
 				<ul class="menu">
-					<li><a href="./">Home</a></li>
+					<li><a href="./" class="is-active" aria-current="page">Home</a></li>
 					<li><a href="apps/index.html">Apps</a></li>
 					<li><a href="about/index.html">About</a></li>
 					<li><a href="contact/index.html">Contact</a></li>
@@ -36,12 +36,29 @@
 					</div>
 				</header>
 				<section id="featured" aria-label="Latest drops">
-					<h2>Latest Drops</h2>
-					<div id="featured-carousel">
-						<div id="carousel-image-container"></div>
-						<div style="text-align: center; margin-top: 20px;">
-							<button id="btn-prev" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">← Prev</button>
-							<button id="btn-next" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">Next →</button>
+					<div class="section-heading">
+						<div>
+							<p class="eyebrow">Latest drops</p>
+							<h2>In the lab</h2>
+						</div>
+						<p class="section-subhead">
+							Fresh prototypes, collabs, and experiments shipping out of El Oruga studios.
+						</p>
+					</div>
+					<div id="featured-carousel" role="region" aria-live="polite">
+						<div class="featured-card">
+							<div class="featured-media" id="carousel-image-container"></div>
+							<div class="featured-meta" id="carousel-meta"></div>
+							<div class="featured-controls">
+								<button class="featured-nav" id="btn-prev" type="button" aria-label="Previous drop">
+									<span class="nav-icon" aria-hidden="true">&larr;</span>
+									<span>Prev</span>
+								</button>
+								<button class="featured-nav" id="btn-next" type="button" aria-label="Next drop">
+									<span>Next</span>
+									<span class="nav-icon" aria-hidden="true">&rarr;</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</section>
