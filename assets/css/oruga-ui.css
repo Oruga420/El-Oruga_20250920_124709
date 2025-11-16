@@ -135,6 +135,11 @@ main {
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
+.navbar .menu a[aria-current="page"] {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
 .navbar .menu a:hover,
 .navbar .menu a:focus-visible {
   color: var(--text-primary);
@@ -337,7 +342,8 @@ main > header p {
 .filters input,
 .filters select,
 input,
-select {
+select,
+textarea {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 18px;
@@ -365,6 +371,11 @@ select {
   background-position: calc(100% - 1.1rem) center;
   background-size: 18px;
   padding-right: 2.5rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
 }
 
 .grid {
@@ -425,6 +436,218 @@ select {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.page-hero {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: center;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.page-hero h1 {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.section-block {
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: clamp(22px, 3vw, 32px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(6, 11, 31, 0.55);
+  box-shadow: 0 20px 60px -40px rgba(6, 11, 31, 0.8);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: clamp(1.25rem, 4vw, 2rem);
+}
+
+.section-header p {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+}
+
+.card-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.info-card,
+.stat-card {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem 1.5rem;
+  background: rgba(8, 12, 32, 0.85);
+  box-shadow: 0 20px 50px -30px rgba(6, 11, 31, 0.9);
+}
+
+.info-card h3,
+.stat-card h3 {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.2em;
+  font-size: 0.95rem;
+}
+
+.info-card p,
+.stat-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.timeline li {
+  position: relative;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -1.64rem;
+  top: 0.35rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timeline-year {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.badge {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: stretch;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-list li span {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.contact-list a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: clamp(1.25rem, 3vw, 1.9rem);
+  background: rgba(8, 12, 32, 0.82);
+  box-shadow: 0 20px 50px -30px rgba(6, 11, 31, 0.9);
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.contact-form .btn {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.form-status {
+  min-height: 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.form-status[data-tone='error'] {
+  color: #ffb3c1;
+}
+
+.form-status[data-tone='success'] {
+  color: #a4ffe8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1rem, 3vw, 1.75rem);
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    border-left: none;
+  }
+
+  .timeline li {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .timeline li::before {
+    display: none;
+  }
 }
 
 .card .tags {
