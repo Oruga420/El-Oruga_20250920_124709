@@ -140,6 +140,11 @@ main {
   border-color: rgba(255, 255, 255, 0.75);
 }
 
+.navbar .menu a[aria-current="page"] {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
 .navbar .menu a:hover,
 .navbar .menu a:focus-visible {
   color: var(--text-primary);

@@ -6,6 +6,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
                 <link rel="stylesheet" href="../assets/css/main.css" />
                 <link rel="stylesheet" href="../assets/css/oruga-ui.css" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
                 <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
         </head>
         <body class="is-preload">
@@ -22,68 +23,41 @@
                         <section id="main">
                                 <header class="hero">
                                         <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
-                                        <h1>Alejandro | El Oruga</h1>
-                                        <p>Solutions architect, Salesforce dev, and clanker builder blending enterprise systems with playful art.</p>
+                                        <h1>About El Oruga</h1>
+                                        <p>Learn more about Alejandro&rsquo;s mix of AI, Salesforce, and art-forward storytelling.</p>
                                         <div class="cta-row">
-                                                <a class="btn" href="../apps/index.html">Explore builds</a>
-                                                <a class="btn" href="../contact/index.html">Collaborate</a>
+                                                <a class="btn" href="#featured">See recent work</a>
+                                                <a class="btn" href="../contact/index.html">Say hello</a>
                                         </div>
                                 </header>
-                                <section class="section-block">
-                                        <h2>Signature moves</h2>
-                                        <div class="card-grid three">
-                                                <article class="info-card">
-                                                        <h3>AI orchestration</h3>
-                                                        <p>Designing prompt routers, retrieval pipelines, and evaluation loops so copilots stay sharp.</p>
-                                                </article>
-                                                <article class="info-card">
-                                                        <h3>Salesforce fluency</h3>
-                                                        <p>From Flow to Apex, I stitch clouds together and surface the story in Lightning pages.</p>
-                                                </article>
-                                                <article class="info-card">
-                                                        <h3>Experience craft</h3>
-                                                        <p>3D visuals, motion, and audio reactive art to make internal tools feel like creative toys.</p>
-                                                </article>
+                                <section id="featured" aria-label="Studio moments">
+                                        <h2>Studio Moments</h2>
+                                        <p>The same highlight reel from the homepage lives here so you can explore without losing the thread.</p>
+                                        <div id="featured-carousel">
+                                        </div>
+                                        <div style="text-align: center; margin-top: 20px;">
+                                                <button id="btn-prev" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">&larr; Prev</button>
+                                                <button id="btn-next" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">Next &rarr;</button>
                                         </div>
                                 </section>
-                                <section class="section-block">
-                                        <h2>Timeline</h2>
-                                        <ol class="timeline">
-                                                <li>
-                                                        <div>
-                                                                <span class="timeline-year">2024</span>
-                                                                <h3>Human in the Loop @ Sesh</h3>
-                                                                <p>Designing AI copilots for creative teams, shipping canvas tools, and leading architecture reviews.</p>
-                                                        </div>
-                                                </li>
-                                                <li>
-                                                        <div>
-                                                                <span class="timeline-year">2021</span>
-                                                                <h3>Sr. Salesforce Consultant</h3>
-                                                                <p>Built enterprise-grade RevOps stacks, automated customer journeys, and modernized partner portals.</p>
-                                                        </div>
-                                                </li>
-                                                <li>
-                                                        <div>
-                                                                <span class="timeline-year">2018</span>
-                                                                <h3>Experimental media lab</h3>
-                                                                <p>Launched the El Oruga moniker, exhibiting interactive sculptures and exploring generative sound.</p>
-                                                        </div>
-                                                </li>
-                                        </ol>
-                                </section>
-                                <section class="section-block">
-                                        <h2>Toolbelt</h2>
-                                        <div class="badge-list">
-                                                <span class="badge">Salesforce</span>
-                                                <span class="badge">Flow &amp; Apex</span>
-                                                <span class="badge">Next.js</span>
-                                                <span class="badge">Three.js</span>
-                                                <span class="badge">Python</span>
-                                                <span class="badge">Zapier</span>
-                                                <span class="badge">LangChain</span>
-                                                <span class="badge">Vercel</span>
-                                                <span class="badge">Music Tech</span>
+                                <section aria-label="Bio" class="section-block">
+                                        <div class="section-header">
+                                                <h2>Quick bio</h2>
+                                                <p>Rooted in enterprise systems, obsessed with playful experiences.</p>
+                                        </div>
+                                        <div class="card-grid three">
+                                                <article class="info-card">
+                                                        <h3>AI + Salesforce</h3>
+                                                        <p>Architecting copilots and CRM automations that keep teams in flow.</p>
+                                                </article>
+                                                <article class="info-card">
+                                                        <h3>Creative tech</h3>
+                                                        <p>Building visuals, sonic experiments, and interactive clankers.</p>
+                                                </article>
+                                                <article class="info-card">
+                                                        <h3>Community</h3>
+                                                        <p>Collaborations with artists, founders, and RevOps crews worldwide.</p>
+                                                </article>
                                         </div>
                                 </section>
                         </section>
@@ -111,6 +85,9 @@
                         <a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
                         <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
                 </div>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+                <script type="module" src="../assets/js/slider.js"></script>
+                <script type="module" src="../assets/js/apps.js"></script>
                 <script>
                         if ('addEventListener' in window) {
                                 window.addEventListener('load', function () {

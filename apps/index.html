@@ -24,43 +24,41 @@
                                 <header class="hero">
                                         <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
                                         <h1>Apps Lab</h1>
-                                        <p>Playable demos, internal copilots, and workflow automations that blend Salesforce, AI, and creative code.</p>
+                                        <p>Explore live copilots, automation meshes, and creative experiments built by El Oruga.</p>
                                         <div class="cta-row">
-                                                <a class="btn" href="#apps-grid">Browse all</a>
-                                                <a class="btn" href="../contact/index.html">Start a build</a>
+                                                <a class="btn" href="#featured">See live builds</a>
+                                                <a class="btn" href="../contact/index.html">Start a project</a>
                                         </div>
                                 </header>
-                                <section class="section-block">
-                                        <h2>Featured workflows</h2>
+                                <section id="featured" aria-label="Live builds">
+                                        <h2>Live Builds</h2>
+                                        <p>Browse the same rotating spotlight that appears on the home page without leaving the app lab.</p>
+                                        <div id="featured-carousel">
+                                        </div>
+                                        <div style="text-align: center; margin-top: 20px;">
+                                                <button id="btn-prev" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">&larr; Prev</button>
+                                                <button id="btn-next" style="padding: 10px 20px; margin: 0 10px; font-size: 20px; cursor: pointer; background: rgba(255,255,255,0.2); border: 2px solid white; color: white; border-radius: 8px;">Next &rarr;</button>
+                                        </div>
+                                </section>
+                                <section aria-label="App categories" class="section-block">
+                                        <div class="section-header">
+                                                <h2>What you&rsquo;ll find</h2>
+                                                <p>Each drop mixes Salesforce, AI, and artful presentation.</p>
+                                        </div>
                                         <div class="card-grid three">
                                                 <article class="info-card">
                                                         <h3>Copilot consoles</h3>
-                                                        <p>Unified canvases that connect GPT, Salesforce, and custom APIs to let teams orchestrate customer magic.</p>
-                                                </article>
-                                                <article class="info-card">
-                                                        <h3>Realtime generative apps</h3>
-                                                        <p>Canvas-like creative toys that remix music, motion, and video using WebGL and custom ML prompts.</p>
+                                                        <p>Unified workbenches connecting GPT, custom APIs, and CRM data.</p>
                                                 </article>
                                                 <article class="info-card">
                                                         <h3>Automation meshes</h3>
-                                                        <p>Zapier- and Flow-powered systems that watch for intent, score leads, and trigger next-best actions.</p>
+                                                        <p>Flows and Zaps stitched together to react instantly to customer intent.</p>
+                                                </article>
+                                                <article class="info-card">
+                                                        <h3>Creative toys</h3>
+                                                        <p>WebGL and audio-reactive experiments that keep tooling playful.</p>
                                                 </article>
                                         </div>
-                                </section>
-                                <section id="categories" class="section-block">
-                                        <h2>Browse by category</h2>
-                                        <p>Tap a lane to instantly filter the gallery.</p>
-                                        <div id="category-chips" class="chips" role="toolbar" aria-label="App categories"></div>
-                                </section>
-                                <section aria-label="Filters" class="section-block">
-                                        <div class="filters">
-                                                <input id="q" placeholder="Search apps..." aria-label="Search apps" />
-                                                <select id="category" aria-label="Filter by category"></select>
-                                                <select id="tech" aria-label="Filter by tech"></select>
-                                        </div>
-                                </section>
-                                <section aria-live="polite" aria-label="Apps grid" class="section-block">
-                                        <div id="apps-grid" class="grid"></div>
                                 </section>
                         </section>
                         <footer id="footer">
