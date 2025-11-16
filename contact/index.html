@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apps - El Oruga</title>
+  <title>Contact - El Oruga</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/oruga-ui.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body class="is-preload">
   <div id="wrapper">
@@ -14,9 +13,9 @@
       <div class="logo"><a href="../index.html">El Oruga</a></div>
       <ul class="menu">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="./index.html" aria-current="page">Apps</a></li>
+        <li><a href="../apps/index.html">Apps</a></li>
         <li><a href="../about/index.html">About</a></li>
-        <li><a href="../contact/index.html">Contact</a></li>
+        <li><a href="./index.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
 
@@ -24,54 +23,72 @@
       <header class="page-hero">
         <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
         <div>
-          <h1>Apps Lab</h1>
-          <p>Playable demos, internal copilots, and workflow automations that blend Salesforce, AI, and creative code.</p>
+          <h1>Signal the Oruga</h1>
+          <p>New collaborations, AI experiments, or tour invites — drop a note and let’s invent the next clanker.</p>
         </div>
         <div class="cta-row">
-          <a class="btn" href="#apps-grid">Browse all</a>
-          <a class="btn" href="../contact/index.html">Start a build</a>
+          <a class="btn" href="mailto:oruga@pm.me">Email direct</a>
+          <a class="btn" href="https://cal.com" target="_blank" rel="noopener">Book a jam</a>
         </div>
       </header>
 
+      <section class="section-block contact-grid">
+        <article class="info-card contact-card">
+          <h3>Stay in touch</h3>
+          <p>Prefer async updates? Ping me anytime — I live in the inbox and in the studio.</p>
+          <ul class="contact-list">
+            <li>
+              <span>Email</span>
+              <a href="mailto:oruga@pm.me">oruga@pm.me</a>
+            </li>
+            <li>
+              <span>Signal</span>
+              <a href="https://instagram.com/oruga_d_karmik" target="_blank" rel="noopener">@oruga_d_karmik</a>
+            </li>
+            <li>
+              <span>HQ</span>
+              <p>Denver, CO + remote worldwide</p>
+            </li>
+          </ul>
+        </article>
+
+        <form class="contact-form" novalidate>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@email.com" required />
+          </label>
+          <label>
+            Project vibes
+            <textarea name="message" rows="4" placeholder="Share goals, timelines, and any links" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send it</button>
+          <p class="form-status" data-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
       <section class="section-block">
         <div class="section-header">
-          <h2>Featured workflows</h2>
-          <p>Small glimpses of what is shipping from the garage lately.</p>
+          <h2>Office hours</h2>
+          <p>Quick checkpoints to align on scope.</p>
         </div>
-        <div class="card-grid three">
-          <article class="info-card">
-            <h3>Copilot consoles</h3>
-            <p>Unified canvases that connect GPT, Salesforce, and custom APIs to let teams orchestrate customer magic.</p>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <h3>Strategy huddle</h3>
+            <p>30-minute discovery to map your workflow or product idea.</p>
           </article>
-          <article class="info-card">
-            <h3>Realtime generative apps</h3>
-            <p>Canvas-like creative toys that remix music, motion, and video using WebGL and custom ML prompts.</p>
+          <article class="stat-card">
+            <h3>Prototype sprint</h3>
+            <p>1-2 weeks to shape a clickable prototype or copilot demo.</p>
           </article>
-          <article class="info-card">
-            <h3>Automation meshes</h3>
-            <p>Zapier- and Flow-powered systems that watch for intent, score leads, and trigger next-best actions.</p>
+          <article class="stat-card">
+            <h3>Production build</h3>
+            <p>Multi-sprint engagement with rollouts, training, and docs.</p>
           </article>
         </div>
-      </section>
-
-      <section id="categories" class="section-block">
-        <div class="section-header">
-          <h2>Browse by category</h2>
-          <p>Tap a lane to instantly filter the gallery.</p>
-        </div>
-        <div id="category-chips" class="chips" role="toolbar" aria-label="App categories"></div>
-      </section>
-
-      <section aria-label="Filters" class="section-block">
-        <div class="filters">
-          <input id="q" placeholder="Search apps..." aria-label="Search apps" />
-          <select id="category" aria-label="Filter by category"></select>
-          <select id="tech" aria-label="Filter by tech"></select>
-        </div>
-      </section>
-
-      <section aria-live="polite" aria-label="Apps grid" class="section-block">
-        <div id="apps-grid" class="grid"></div>
       </section>
     </main>
 
@@ -101,9 +118,7 @@
     <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script type="module" src="../assets/js/slider.js"></script>
-  <script type="module" src="../assets/js/apps.js"></script>
+  <script type="module" src="../assets/js/contact.js"></script>
   <script>
     if ('addEventListener' in window) {
       window.addEventListener('load', function () {
