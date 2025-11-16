@@ -218,6 +218,8 @@ let currentSlide = 0;
 
 function renderFeatured(apps) {
   const carousel = document.getElementById('featured-carousel');
+  if (!carousel) return;
+
   if (!apps || !apps.length) {
     if (carousel) {
       carousel.innerHTML = '<p class="empty-state">No featured drops yet. Check back soon.</p>';
