@@ -217,51 +217,92 @@ let FEATURED_APPS = [];
 let currentSlide = 0;
 
 function renderFeatured(apps) {
-  if (!apps || !apps.length) return;
+  const carousel = document.getElementById('featured-carousel');
+  if (!carousel) return;
+
+  if (!apps || !apps.length) {
+    if (carousel) {
+      carousel.innerHTML = '<p class="empty-state">No featured drops yet. Check back soon.</p>';
+    }
+    return;
+  }
 
   FEATURED_APPS = apps;
   currentSlide = 0;
 
   showCurrentSlide();
+  updateFeaturedNavState();
 
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
 
   if (btnPrev) {
-    btnPrev.addEventListener('click', function() {
-      currentSlide--;
-      if (currentSlide < 0) currentSlide = FEATURED_APPS.length - 1;
+    btnPrev.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + FEATURED_APPS.length) % FEATURED_APPS.length;
       showCurrentSlide();
     });
   }
 
   if (btnNext) {
-    btnNext.addEventListener('click', function() {
-      currentSlide++;
-      if (currentSlide >= FEATURED_APPS.length) currentSlide = 0;
+    btnNext.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % FEATURED_APPS.length;
       showCurrentSlide();
     });
   }
 }
 
+function updateFeaturedNavState() {
+  const disable = FEATURED_APPS.length < 2;
+  [document.getElementById('btn-prev'), document.getElementById('btn-next')].forEach((btn) => {
+    if (!btn) return;
+    btn.disabled = disable;
+  });
+}
+
 function showCurrentSlide() {
-  const container = document.getElementById('carousel-image-container');
-  if (!container || !FEATURED_APPS.length) return;
+  if (!FEATURED_APPS.length) return;
+
+  const mediaRoot = document.getElementById('carousel-image-container');
+  const metaRoot = document.getElementById('carousel-meta');
+  if (!mediaRoot && !metaRoot) return;
 
   const app = FEATURED_APPS[currentSlide];
-  const img = resolveAssetPath(app.coverImage) || resolveAssetPath('images/newbg.jpg');
-  const link = app.liveUrl || resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(app.slug)}`);
-  const target = app.liveUrl ? ' target="_blank" rel="noopener"' : '';
+  const cover = resolveAssetPath(app.coverImage) || resolveAssetPath('images/newbg.jpg');
+  const detailHref = app.slug
+    ? resolveInternalPath(`apps/app.html?slug=${encodeURIComponent(app.slug)}`)
+    : resolveInternalPath('apps/index.html');
+  const primaryLink = app.liveUrl || detailHref;
+  const targetAttr = app.liveUrl ? ' target="_blank" rel="noopener"' : '';
+  const summary = app.tagline || app.shortDescription || '';
+  const tagLine = app.tags && app.tags.length ? app.tags.slice(0, 2).join(' • ') : '';
 
-  container.innerHTML = `
-    <div style="text-align: center;">
-      <a href="${link}"${target}>
-        <img src="${img}" alt="${app.title}" style="max-width: 700px; width: 100%; height: auto; border-radius: 16px;" />
+  if (mediaRoot) {
+    mediaRoot.innerHTML = `
+      <a class="featured-cover" href="${primaryLink}"${targetAttr}>
+        <img src="${cover}" alt="${app.title}" loading="lazy" />
       </a>
-      <h3 style="color: white; margin-top: 15px;">${app.title}</h3>
-      <p style="color: rgba(255,255,255,0.8);">${app.tagline || ''}</p>
-    </div>
-  `;
+    `;
+  }
+
+  if (metaRoot) {
+    const liveLink = app.liveUrl
+      ? `<a href="${app.liveUrl}" class="btn" target="_blank" rel="noopener">Launch</a>`
+      : '';
+    const repoLink = app.repoUrl
+      ? `<a href="${app.repoUrl}" class="btn" target="_blank" rel="noopener">Repo</a>`
+      : '';
+    metaRoot.innerHTML = `
+      <p class="eyebrow">${app.category || 'Drop'}</p>
+      <h3>${app.title}</h3>
+      ${summary ? `<p class="featured-description">${summary}</p>` : ''}
+      ${tagLine ? `<p class="featured-tags">${tagLine}</p>` : ''}
+      <div class="featured-links">
+        <a href="${detailHref}" class="btn">Details</a>
+        ${liveLink}
+        ${repoLink}
+      </div>
+    `;
+  }
 }
 
 if (document.readyState === 'loading') {
