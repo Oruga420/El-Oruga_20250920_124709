@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apps - El Oruga</title>
+  <title>Contact - El Oruga</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/oruga-ui.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -15,49 +15,66 @@
       <div class="logo"><a href="../index.html">El Oruga</a></div>
       <ul class="menu">
         <li><a href="../index.html">Home</a></li>
-        <li><a class="active" aria-current="page" href="./index.html">Apps</a></li>
+        <li><a href="../apps/index.html">Apps</a></li>
         <li><a href="../about/index.html">About</a></li>
-        <li><a href="../contact/index.html">Contact</a></li>
+        <li><a class="active" aria-current="page" href="./index.html">Contact</a></li>
       </ul>
     </nav>
 
     <main>
       <header class="hero page-hero">
-        <p class="eyebrow">Toolbox</p>
-        <h1>Apps &amp; Automations</h1>
-        <p>Browse the living library of AI copilots, Salesforce accelerators, visuals, and experimental clankers.</p>
+        <h1>Let&rsquo;s Build</h1>
+        <p>Drop a note if you need an AI architect, a Salesforce sherpa, or a creative conspirator. I read everything personally.</p>
         <div class="cta-row">
-          <a class="btn" href="../contact/index.html">Request a Build</a>
-          <a class="btn" href="#apps">See Library</a>
+          <a class="btn" href="mailto:el.oruga.ai@gmail.com">Email Me</a>
+          <a class="btn" href="https://cal.com/" target="_blank" rel="noopener">Book a Jam</a>
         </div>
       </header>
 
-      <section class="info-card" aria-label="Quick stats">
-        <h2>What&rsquo;s inside</h2>
-        <ul class="pill-list">
-          <li>Lead routing copilots</li>
-          <li>Social content rigs</li>
-          <li>Workflow dashboards</li>
-          <li>Show visuals</li>
-        </ul>
-        <p>Everything here ships with documentation, Loom walkthroughs, and hooks for your stack.</p>
+      <section class="contact-grid" aria-label="Contact methods">
+        <article class="info-card">
+          <h2>Signal Chain</h2>
+          <dl class="contact-list">
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:el.oruga.ai@gmail.com">el.oruga.ai@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>HQ</dt>
+              <dd>Remote &mdash; Operating across MX / US timezones</dd>
+            </div>
+            <div>
+              <dt>Collab Types</dt>
+              <dd>Strategy sprints, build weeks, retainers, live visuals</dd>
+            </div>
+          </dl>
+        </article>
+        <article class="info-card">
+          <h2>Quick Form</h2>
+          <form class="contact-form" name="contact" method="post" netlify>
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" placeholder="you@email.com" required />
+            </label>
+            <label>
+              <span>How can I help?</span>
+              <textarea name="message" rows="4" placeholder="Project idea, challenge, or vibe check" required></textarea>
+            </label>
+            <button class="btn" type="submit">Send Signal</button>
+          </form>
+        </article>
       </section>
 
-      <section id="apps" aria-label="Apps library">
-        <div class="chips" id="category-chips" aria-label="Categories"></div>
-        <div class="filters">
-          <input id="q" placeholder="Search apps..." aria-label="Search apps" />
-          <select id="category" aria-label="Filter by category"></select>
-          <select id="tech" aria-label="Filter by tech"></select>
-        </div>
-        <div id="apps-grid" class="grid" aria-live="polite"></div>
-      </section>
-
-      <section class="info-card" aria-label="Custom work">
-        <h2>Need Something Custom?</h2>
-        <p>Tell me the story, the stack, and the dream outcome. I&rsquo;ll scope a build week or craft a roadmap with milestones.</p>
+      <section class="info-card" aria-label="Response times">
+        <h2>Response Time</h2>
+        <p>I usually reply within 24 hours on weekdays. If it&rsquo;s urgent, DM me on Instagram or TikTok and flag it.</p>
         <div class="cta-row">
-          <a class="btn" href="../contact/index.html">Start a Project</a>
+          <a class="btn" href="https://www.instagram.com/oruga_d_karmik/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@oruga420" target="_blank" rel="noopener">TikTok</a>
         </div>
       </section>
     </main>
@@ -81,10 +98,6 @@
     <a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
     <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script type="module" src="../assets/js/slider.js"></script>
-  <script type="module" src="../assets/js/apps.js"></script>
   <script>
     if ('addEventListener' in window) {
       window.addEventListener('load', function () {
@@ -95,4 +108,3 @@
   </script>
 </body>
 </html>
-

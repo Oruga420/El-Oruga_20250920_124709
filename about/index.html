@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apps - El Oruga</title>
+  <title>About - El Oruga</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
   <link rel="stylesheet" href="../assets/css/oruga-ui.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -15,50 +15,77 @@
       <div class="logo"><a href="../index.html">El Oruga</a></div>
       <ul class="menu">
         <li><a href="../index.html">Home</a></li>
-        <li><a class="active" aria-current="page" href="./index.html">Apps</a></li>
-        <li><a href="../about/index.html">About</a></li>
+        <li><a href="../apps/index.html">Apps</a></li>
+        <li><a class="active" aria-current="page" href="./index.html">About</a></li>
         <li><a href="../contact/index.html">Contact</a></li>
       </ul>
     </nav>
 
     <main>
       <header class="hero page-hero">
-        <p class="eyebrow">Toolbox</p>
-        <h1>Apps &amp; Automations</h1>
-        <p>Browse the living library of AI copilots, Salesforce accelerators, visuals, and experimental clankers.</p>
+        <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
+        <p class="eyebrow">Alejandro / El Oruga</p>
+        <h1>AI Solutions Architect</h1>
+        <p>From Salesforce ecosystems to bespoke AI copilots, I blend automation, creativity, and a little chaos magic to help crews ship faster.</p>
         <div class="cta-row">
-          <a class="btn" href="../contact/index.html">Request a Build</a>
-          <a class="btn" href="#apps">See Library</a>
+          <a class="btn" href="../apps/index.html">Explore Apps</a>
+          <a class="btn" href="../contact/index.html">Book a Session</a>
         </div>
       </header>
 
-      <section class="info-card" aria-label="Quick stats">
-        <h2>What&rsquo;s inside</h2>
-        <ul class="pill-list">
-          <li>Lead routing copilots</li>
-          <li>Social content rigs</li>
-          <li>Workflow dashboards</li>
-          <li>Show visuals</li>
-        </ul>
-        <p>Everything here ships with documentation, Loom walkthroughs, and hooks for your stack.</p>
+      <section class="content-grid" aria-label="Focus areas">
+        <article class="info-card">
+          <h2>What Drives Me</h2>
+          <p>I like to take moonshot ideas and make them tactile. That means orchestrating multi-agent AI stacks, piping data from dusty CRMs into fresh realtime experiences, and wrapping everything in a vibe-rich UX.</p>
+          <ul>
+            <li>Human-in-the-loop automation</li>
+            <li>Rapid prototyping &amp; creative direction</li>
+            <li>Salesforce + AI enablement</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h2>Toolbelt</h2>
+          <ul class="pill-list">
+            <li>Claude / GPT / Stability</li>
+            <li>Salesforce / Flow / Apex</li>
+            <li>JavaScript / Node / Python</li>
+            <li>Design Systems &amp; Motion</li>
+          </ul>
+          <p>Every build starts with discovery, then we pick the right mix of traditional software + frontier AI to get the job done.</p>
+        </article>
       </section>
 
-      <section id="apps" aria-label="Apps library">
-        <div class="chips" id="category-chips" aria-label="Categories"></div>
-        <div class="filters">
-          <input id="q" placeholder="Search apps..." aria-label="Search apps" />
-          <select id="category" aria-label="Filter by category"></select>
-          <select id="tech" aria-label="Filter by tech"></select>
-        </div>
-        <div id="apps-grid" class="grid" aria-live="polite"></div>
+      <section class="timeline" aria-label="Recent missions">
+        <h2>Recent Missions</h2>
+        <ol class="timeline-list">
+          <li>
+            <span class="timeline-date">2024 &ndash; Now</span>
+            <div>
+              <h3>Sesh</h3>
+              <p>Guiding AI product strategy and delivering bespoke automations for creative collectives.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">2022 &ndash; 2024</span>
+            <div>
+              <h3>Salesforce Wizardry</h3>
+              <p>Architected sales/service flows, integrations, and AI copilots that keep enterprises human-friendly.</p>
+            </div>
+          </li>
+          <li>
+            <span class="timeline-date">2019 &ndash; 2022</span>
+            <div>
+              <h3>Creative Labs</h3>
+              <p>Built immersive installations, live visuals, and experimental hardware that bridge art + code.</p>
+            </div>
+          </li>
+        </ol>
       </section>
 
-      <section class="info-card" aria-label="Custom work">
-        <h2>Need Something Custom?</h2>
-        <p>Tell me the story, the stack, and the dream outcome. I&rsquo;ll scope a build week or craft a roadmap with milestones.</p>
-        <div class="cta-row">
-          <a class="btn" href="../contact/index.html">Start a Project</a>
-        </div>
+      <section class="info-card" aria-label="Values">
+        <h2>Operating System</h2>
+        <p>I keep feedback loops tight, prototype in the open, and document relentlessly so teams can maintain what we summon together.</p>
+        <p>Need a co-pilot who can translate between exec speak, developer ops, and creative direction? That&rsquo;s me.</p>
       </section>
     </main>
 
@@ -81,10 +108,6 @@
     <a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
     <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script type="module" src="../assets/js/slider.js"></script>
-  <script type="module" src="../assets/js/apps.js"></script>
   <script>
     if ('addEventListener' in window) {
       window.addEventListener('load', function () {
@@ -95,4 +118,3 @@
   </script>
 </body>
 </html>
-
