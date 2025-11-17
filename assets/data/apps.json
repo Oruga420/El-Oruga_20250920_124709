@@ -133,5 +133,59 @@
         "liveUrl":  "https://video-slicer-20250919-170716.vercel.app/",
         "status":  "live",
         "publishedAt":  "2025-06-08"
+    },
+    {
+        "id":  "6",
+        "slug":  "talk-to-luna",
+        "title":  "Talk to Luna",
+        "tagline":  "Chat with an empathic AI co-pilot",
+        "coverImage":  "/images/newbg.jpg",
+        "shortDescription":  "Voice-ready assistant for mood check-ins, reminders, and ritual tracking.",
+        "longDescription":  "Talk to Luna is a lightweight AI companion that keeps up with your day. Send voice notes, capture rituals, and let Luna mirror the energy back with prompts, affirmations, and reminders across WhatsApp and web.",
+        "features":  [
+                         "Voice + text capture",
+                         "Personal ritual tracker",
+                         "WhatsApp + web handoff"
+                     ],
+        "tech":  [
+                     "Next.js",
+                     "OpenAI",
+                     "Twilio"
+                 ],
+        "category":  "Talk to Luna",
+        "tags":  [
+                     "Assistant",
+                     "AI Companion"
+                 ],
+        "liveUrl":  "https://talk-to-luna-demo.vercel.app/",
+        "status":  "beta",
+        "publishedAt":  "2025-06-10"
+    },
+    {
+        "id":  "7",
+        "slug":  "content-orbit",
+        "title":  "Content Orbit",
+        "tagline":  "Plan, remix, and ship content drops fast",
+        "coverImage":  "/images/newbg.jpg",
+        "shortDescription":  "Calendar, briefs, and remix prompts for every channel.",
+        "longDescription":  "Content Orbit keeps the content engine spinning. Organize drops, build creative briefs, and auto-generate remix prompts for reels, newsletters, and blogs from a single command center.",
+        "features":  [
+                         "Multi-channel calendar",
+                         "Brief + prompt generator",
+                         "Approval + publish flow"
+                     ],
+        "tech":  [
+                     "Next.js",
+                     "Supabase",
+                     "OpenAI"
+                 ],
+        "category":  "Content",
+        "tags":  [
+                     "Marketing",
+                     "Workflow"
+                 ],
+        "liveUrl":  "https://content-orbit.vercel.app/",
+        "status":  "live",
+        "publishedAt":  "2025-06-11"
     }
 ]
