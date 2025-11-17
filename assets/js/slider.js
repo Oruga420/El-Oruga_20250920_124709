@@ -42,11 +42,20 @@ window.initGallerySwiper = function initGallerySwiper() {
     swiperEl.swiper.destroy(true, true);
   }
 
+  const slideCount = swiperEl.querySelectorAll('.swiper-slide').length;
+  const enableLoop = slideCount > 3;
+
   new Swiper('.apps-swiper', {
-    loop: false,
-    slidesPerView: 'auto',
-    spaceBetween: 24,
-    centeredSlides: false,
+    loop: enableLoop,
+    loopAdditionalSlides: enableLoop ? 2 : 0,
+    slidesPerView: 1.05,
+    spaceBetween: 18,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    slideToClickedSlide: true,
+    watchSlidesProgress: true,
+    grabCursor: true,
+    speed: 650,
     keyboard: { enabled: true },
     pagination: {
       el: '.apps-swiper .swiper-pagination',
@@ -57,9 +66,11 @@ window.initGallerySwiper = function initGallerySwiper() {
       prevEl: '.apps-swiper .swiper-button-prev'
     },
     breakpoints: {
-      0: { spaceBetween: 16 },
-      768: { spaceBetween: 24 },
-      1280: { spaceBetween: 32 }
+      0: { slidesPerView: 1.02, spaceBetween: 16 },
+      640: { slidesPerView: 1.25, spaceBetween: 20 },
+      900: { slidesPerView: 1.6, spaceBetween: 24 },
+      1200: { slidesPerView: 2.1, spaceBetween: 30 },
+      1500: { slidesPerView: 2.4, spaceBetween: 36 }
     }
   });
 };

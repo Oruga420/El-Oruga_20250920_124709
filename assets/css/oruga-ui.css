@@ -397,6 +397,9 @@ textarea {
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
   border-radius: 24px;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(11, 13, 34, 0.92) 40%, rgba(11, 13, 34, 0.96) 100%);
@@ -426,27 +429,74 @@ textarea {
   opacity: 1;
 }
 
-.card img {
+.card-media {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 7, 22, 0) 55%, rgba(3, 7, 22, 0.65) 100%);
+  pointer-events: none;
+}
+
+.card-media img {
   width: 100%;
-  height: 190px;
+  height: clamp(200px, 28vw, 260px);
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
 }
 
+.card:hover .card-media img {
+  transform: scale(1.06);
+}
+
+.card-body,
 .card .content {
-  padding: 1.1rem 1.2rem 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.35rem 1.5rem 1.75rem;
 }
 
+.card-body h3,
 .card .content h3 {
   margin: 0 0 0.55rem;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text-primary);
 }
 
+.card-body p,
 .card .content p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.card-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--accent);
+}
+
+.card-tagline {
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.card-tags {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .page-hero {
@@ -882,10 +932,12 @@ main > header {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+  margin-top: auto;
 }
 
 .card-actions .btn {
-  min-width: 120px;
+  min-width: 0;
+  flex: 1 1 140px;
   justify-content: center;
 }
 
@@ -895,15 +947,105 @@ main > header {
 }
 
 .apps-swiper {
-  padding: clamp(1.2rem, 4vw, 2rem) clamp(0.5rem, 2vw, 1rem) clamp(2.2rem, 5vw, 3rem);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  overflow: visible;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 6vw, 4rem) clamp(3.2rem, 6vw, 4rem);
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(124, 255, 242, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(247, 96, 255, 0.28), transparent 60%),
+    rgba(7, 11, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 35px 80px -40px rgba(4, 6, 18, 0.95);
 }
 
 .apps-swiper .swiper-slide {
-  width: clamp(240px, 48vw, 320px);
+  width: clamp(260px, 48vw, 360px);
+  display: flex;
+  align-items: stretch;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0.55;
+}
+
+.apps-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.apps-swiper .swiper-slide-active {
+  transform: translateY(-8px) scale(1.02);
+  opacity: 1;
+}
+
+.apps-swiper .swiper-slide-next,
+.apps-swiper .swiper-slide-prev {
+  opacity: 0.8;
+}
+
+.apps-swiper .swiper-button-prev,
+.apps-swiper .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  background: rgba(6, 10, 28, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--text-primary);
+  box-shadow: 0 25px 60px -35px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  z-index: 5;
+}
+
+.apps-swiper .swiper-button-prev {
+  left: clamp(-1.25rem, -3vw, -2.75rem);
+}
+
+.apps-swiper .swiper-button-next {
+  right: clamp(-1.25rem, -3vw, -2.75rem);
+}
+
+.apps-swiper .swiper-button-prev:hover,
+.apps-swiper .swiper-button-next:hover {
+  transform: translateY(-50%) scale(1.05);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.apps-swiper .swiper-button-prev::after,
+.apps-swiper .swiper-button-next::after {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.apps-swiper .swiper-pagination {
+  bottom: clamp(0.2rem, 1vw, 0.8rem);
+}
+
+.apps-swiper .swiper-pagination-bullet {
+  width: 36px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  opacity: 1;
+}
+
+.apps-swiper .swiper-pagination-bullet-active {
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .apps-swiper .swiper-button-prev {
+    left: 4px;
+  }
+
+  .apps-swiper .swiper-button-next {
+    right: 4px;
+  }
+
+  .apps-swiper {
+    padding-bottom: 3.6rem;
+  }
 }
 
 .featured-swiper .swiper-slide {
