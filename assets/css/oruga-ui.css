@@ -56,6 +56,10 @@ body::before {
   z-index: 0;
 }
 
+body::after {
+  pointer-events: none;
+}
+
 #wrapper {
   position: relative;
   z-index: 1;
