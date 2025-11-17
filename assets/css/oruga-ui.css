@@ -433,6 +433,7 @@ textarea {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), rgba(3, 7, 22, 0.8));
 }
 
 .card-media::after {
@@ -445,8 +446,9 @@ textarea {
 
 .card-media img {
   width: 100%;
-  height: clamp(200px, 28vw, 260px);
-  object-fit: cover;
+  height: clamp(220px, 28vw, 280px);
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.25);
   display: block;
   transition: transform 0.35s ease;
 }

@@ -161,6 +161,7 @@ function cardHTML(app, index = 0) {
   const imageLink = app.liveUrl || detailHref;
   const imageAttrs = app.liveUrl ? ' target="_blank" rel="noopener"' : '';
   const cover = resolveAssetPath(app.coverImage) || resolveAssetPath('images/newbg.jpg');
+  const imageAlt = `${app.title} cover art`;
   const live = app.liveUrl
     ? `<a href="${app.liveUrl}" class="btn" target="_blank" rel="noopener">Live</a>`
     : '';
@@ -171,7 +172,7 @@ function cardHTML(app, index = 0) {
     <article class="card ${gradientClass}">
       <div class="card-media">
         <a href="${imageLink}"${imageAttrs}>
-          <img src="${cover}" alt="${app.title} cover" loading="lazy" />
+          <img src="${cover}" alt="${imageAlt}" loading="lazy" />
         </a>
       </div>
       <div class="card-body">
