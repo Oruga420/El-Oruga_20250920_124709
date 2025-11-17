@@ -35,12 +35,18 @@
 						<div class="pager-status" id="videos-page-indicator">Page 1</div>
 						<button id="videos-next" class="pager-btn" type="button">Next</button>
 					</div>
-					<p class="pager-hint">Tip: Use your arrow keys or tap the controls to skim through the archive.</p>
+					<p class="pager-hint">Tip: usa las flechas del teclado o los botones para recorrer el archivo completo.</p>
 					<noscript>
-						<p class="empty-state">Enable JavaScript to browse the latest YouTube drops.</p>
+						<p class="empty-state">Enable JavaScript to browse the latest drops.</p>
 					</noscript>
 				</section>
 			</main>
+			<div class="video-modal" id="video-modal" aria-hidden="true">
+				<div class="video-modal__inner" role="dialog" aria-modal="true">
+					<button class="video-modal__close" id="video-modal-close" type="button" aria-label="Cerrar video">&times;</button>
+					<div class="video-modal__frame" id="video-modal-frame"></div>
+				</div>
+			</div>
 			<footer id="footer">
 				<div class="socials" role="group" aria-label="Social links">
 					<a href="https://www.instagram.com/oruga_d_karmik/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="social-label">Instagram</span></a>
