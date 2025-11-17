@@ -23,20 +23,30 @@
                                 </ul>
                         </nav>
                         <section id="main">
-                                <header class="hero">
-                                        <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of Luna companion" /></span>
-                                        <h1>Habla con Luna</h1>
-                                        <p>Luna es el copiloto del estudio. Abrí el widget, contale qué necesitás y dejala operar.</p>
-                                </header>
-                                <section class="section-block" aria-label="Luna live widget">
-                                        <div class="section-header">
-                                                <h2>Asistente en vivo</h2>
-                                                <p>No hay formularios ni correos: el flujo entero sucede dentro del widget ElevenLabs.</p>
-                                        </div>
-                                        <div class="luna-widget">
-                                                <elevenlabs-convai agent-id="agent_01k00ne8yrfpsb8650janj4sbx"></elevenlabs-convai>
-                                        </div>
-                                </section>
+				<header class="hero">
+					<span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of Luna companion" /></span>
+					<h1>Habla con Luna</h1>
+					<p>Luna es el copiloto del estudio. Cuéntale qué estás construyendo, comparte contexto y dejala orquestar flujos, ideas y próximas acciones.</p>
+				</header>
+				<section class="section-block luna-section" aria-label="Luna live widget">
+					<div class="luna-panel">
+						<div class="luna-panel__copy">
+							<p class="eyebrow">Luna en vivo</p>
+							<h2>Sin formularios. Sin correos. Solo conversación.</h2>
+							<p>El widget se integra directo con ElevenLabs Agents, así que la interacción ocurre dentro de este panel. Prepará estos puntos antes de iniciar:</p>
+							<ul class="luna-list">
+								<li>El objetivo o problema que querés resolver.</li>
+								<li>Las herramientas que podés exponer (CRM, APIs, dashboards).</li>
+								<li>Restricciones: presupuesto, timing, stack actual.</li>
+							</ul>
+							<p class="luna-hint">Pro tip: cuanto más contexto le des al inicio, más rápido te devuelve acciones y automatizaciones recomendadas.</p>
+						</div>
+						<div class="luna-panel__widget">
+							<elevenlabs-convai agent-id="agent_01k00ne8yrfpsb8650janj4sbx"></elevenlabs-convai>
+							<p class="luna-powered">Powered by ElevenLabs Agents · Luna responde en español / inglés.</p>
+						</div>
+					</div>
+				</section>
                         </section>
                         <footer id="footer">
                                 <div class="socials" role="group" aria-label="Social links">
