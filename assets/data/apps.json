@@ -4,7 +4,7 @@
         "slug":  "sesh-image-gen",
         "title":  "Sesh Image Gen",
         "tagline":  "Generate on-brand visuals in a tap",
-        "coverImage":  "/images/sesh-image-gen.jpg",
+        "coverImage":  "/images/apps/sesh-image-gen_4x3.png",
         "shortDescription":  "Quick prompts to on-brand art for Sesh campaigns.",
         "longDescription":  "Sesh Image Gen lets the team spin up on-brand visuals in seconds. Feed prompts, tweak palettes, and export assets tuned for campaigns without leaving the browser.",
         "features":  [
@@ -31,7 +31,7 @@
         "slug":  "tetris-xr",
         "title":  "Tetris XR",
         "tagline":  "Tetris with motion-powered twists",
-        "coverImage":  "/images/tetris.png",
+        "coverImage":  "/images/apps/tetris_4x3.png",
         "shortDescription":  "Spin blocks with gestures and race the clock.",
         "longDescription":  "A kinetic take on the classic. Tetris XR layers motion controls, haptics, and reactive audio for a fresh arcade loop you can play in the browser.",
         "features":  [
@@ -58,7 +58,7 @@
         "slug":  "video2audio-transformer",
         "title":  "Video to Audio Transformer",
         "tagline":  "Strip audio tracks from clips in seconds",
-        "coverImage":  "/images/video2audio.jpg",
+        "coverImage":  "/images/apps/video2audio_4x3.jpg",
         "shortDescription":  "Upload video, grab clean audio, done.",
         "longDescription":  "Drop in any video and instantly download a clean audio track. Built for creators repurposing clips for podcasts, reels, or sample packs.",
         "features":  [
@@ -85,7 +85,7 @@
         "slug":  "onepiece-3d-chess",
         "title":  "One Piece 3D Chess",
         "tagline":  "Sail the Grand Line on a 3D board",
-        "coverImage":  "/images/oneppiece.png",
+        "coverImage":  "/images/apps/onepiece_4x3.png",
         "shortDescription":  "Anime-inspired chess with powers and effects.",
         "longDescription":  "Command Straw Hat inspired pieces across a stylized 3D board, unlocking special moves and cinematic effects as you play.",
         "features":  [
@@ -112,7 +112,7 @@
         "slug":  "video-slicer",
         "title":  "Video Slicer",
         "tagline":  "Trim and slice videos with precision",
-        "coverImage":  "/images/newbg.jpg",
+        "coverImage":  "/images/apps/video-slizer-color_4x3.png",
         "shortDescription":  "Cut, trim, and export video segments quickly.",
         "longDescription":  "Video Slicer lets you trim videos down to the exact frames you need. Perfect for creating clips, highlights, or removing unwanted sections.",
         "features":  [
