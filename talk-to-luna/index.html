@@ -24,31 +24,17 @@
                         </nav>
                         <section id="main">
                                 <header class="hero">
-                                        <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
-                                        <h1>Talk to Luna</h1>
-                                        <p>Luna is the studio AI companion. This page is a quick placeholder while we finish wiring the experience.</p>
-                                        <div class="cta-row">
-                                                <a class="btn" href="mailto:oruga@pm.me">Request early access</a>
-                                        </div>
+                                        <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of Luna companion" /></span>
+                                        <h1>Habla con Luna</h1>
+                                        <p>Luna es el copiloto del estudio. Abrí el widget, contale qué necesitás y dejala operar.</p>
                                 </header>
-                                <section class="section-block" aria-label="Luna placeholder">
+                                <section class="section-block" aria-label="Luna live widget">
                                         <div class="section-header">
-                                                <h2>What to expect</h2>
-                                                <p>The full Luna portal will include live chat, demo videos, and onboarding docs. Until then, feel free to reach out directly.</p>
+                                                <h2>Asistente en vivo</h2>
+                                                <p>No hay formularios ni correos: el flujo entero sucede dentro del widget ElevenLabs.</p>
                                         </div>
-                                        <div class="card-grid three">
-                                                <article class="info-card">
-                                                        <h3>Conversation previews</h3>
-                                                        <p>We'll showcase transcripts and best prompts once the interface ships.</p>
-                                                </article>
-                                                <article class="info-card">
-                                                        <h3>Integration notes</h3>
-                                                        <p>Guides for Slack, WhatsApp, and in-person installs will land here.</p>
-                                                </article>
-                                                <article class="info-card">
-                                                        <h3>Booking flow</h3>
-                                                        <p>Calendly hooks and pricing snapshots are on deck for the next release.</p>
-                                                </article>
+                                        <div class="luna-widget">
+                                                <elevenlabs-convai agent-id="agent_01k00ne8yrfpsb8650janj4sbx"></elevenlabs-convai>
                                         </div>
                                 </section>
                         </section>
@@ -78,6 +64,7 @@
                 </div>
                 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
                 <script type="module" src="../assets/js/slider.js"></script>
+                <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
                 <script type="module" src="../assets/js/apps.js"></script>
                 <script>
                         if ('addEventListener' in window) {
