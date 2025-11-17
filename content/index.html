@@ -1,347 +1,78 @@
 <!DOCTYPE HTML>
 <html>
-        <head>
-                <title>Content - El Oruga</title>
-                <meta charset="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-                <link rel="stylesheet" href="../assets/css/main.css" />
-                <link rel="stylesheet" href="../assets/css/oruga-ui.css" />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-                <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-                <style>
-                        .video-grid {
-                                display: grid;
-                                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                                gap: 1.5rem;
-                        }
-
-                        .video-card {
-                                background: rgba(255, 255, 255, 0.05);
-                                border: 1px solid rgba(255, 255, 255, 0.08);
-                                border-radius: 18px;
-                                overflow: hidden;
-                                display: flex;
-                                flex-direction: column;
-                                min-height: 100%;
-                        }
-
-                        .video-thumb {
-                                position: relative;
-                                overflow: hidden;
-                                aspect-ratio: 16 / 9;
-                        }
-
-                        .video-thumb img {
-                                width: 100%;
-                                height: 100%;
-                                object-fit: cover;
-                                display: block;
-                        }
-
-                        .video-thumb::after {
-                                content: '\25BA';
-                                position: absolute;
-                                inset: 0;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 2.5rem;
-                                color: rgba(255, 255, 255, 0.9);
-                                opacity: 0;
-                                transition: opacity 0.3s ease;
-                        }
-
-                        .video-card:hover .video-thumb::after,
-                        .video-card:focus-within .video-thumb::after {
-                                opacity: 0.8;
-                        }
-
-                        .video-topic {
-                                position: absolute;
-                                left: 1rem;
-                                bottom: 1rem;
-                                background: rgba(9, 11, 34, 0.85);
-                                padding: 0.4rem 0.8rem;
-                                border-radius: 999px;
-                                font-size: 0.8rem;
-                                letter-spacing: 0.05em;
-                                text-transform: uppercase;
-                        }
-
-                        .video-meta {
-                                padding: 1.5rem;
-                                display: flex;
-                                flex-direction: column;
-                                gap: 0.75rem;
-                                flex: 1;
-                        }
-
-                        .video-meta h3 {
-                                margin-bottom: 0.2rem;
-                        }
-
-                        .video-meta p {
-                                margin: 0;
-                        }
-
-                        .video-tags {
-                                display: flex;
-                                flex-wrap: wrap;
-                                gap: 0.75rem;
-                                font-size: 0.85rem;
-                                opacity: 0.8;
-                        }
-
-                        .video-modal {
-                                position: fixed;
-                                inset: 0;
-                                background: rgba(0, 0, 0, 0.7);
-                                display: none;
-                                align-items: center;
-                                justify-content: center;
-                                padding: 1.5rem;
-                                z-index: 999;
-                        }
-
-                        .video-modal.is-visible {
-                                display: flex;
-                        }
-
-                        .modal-content {
-                                background: #05060f;
-                                border-radius: 20px;
-                                padding: 1.5rem;
-                                max-width: 900px;
-                                width: 100%;
-                                border: 1px solid rgba(255, 255, 255, 0.1);
-                                position: relative;
-                        }
-
-                        .modal-close {
-                                position: absolute;
-                                top: 1rem;
-                                right: 1rem;
-                                border: none;
-                                background: rgba(255, 255, 255, 0.08);
-                                color: #fff;
-                                font-size: 1.1rem;
-                                padding: 0.3rem 0.7rem;
-                                border-radius: 999px;
-                                cursor: pointer;
-                        }
-
-                        .responsive-embed {
-                                position: relative;
-                                width: 100%;
-                                padding-bottom: 56.25%;
-                                margin-top: 1rem;
-                        }
-
-                        .responsive-embed iframe {
-                                position: absolute;
-                                inset: 0;
-                                width: 100%;
-                                height: 100%;
-                                border: 0;
-                                border-radius: 16px;
-                        }
-
-                        @media (max-width: 640px) {
-                                .video-tags {
-                                        flex-direction: column;
-                                }
-                        }
-                </style>
-        </head>
-        <body class="is-preload">
-                <div id="wrapper">
-                        <nav class="navbar" aria-label="Primary">
-                                <div class="logo"><a href="../index.html">El Oruga</a></div>
-                                <ul class="menu">
-                                        <li><a href="../index.html">Home</a></li>
-                                        <li><a href="../apps/index.html">Apps</a></li>
-                                        <li><a href="./index.html" aria-current="page">Content</a></li>
-                                        <li><a href="../talk-to-luna/index.html">Talk to Luna</a></li>
-                                        <li><a href="../about/index.html">About</a></li>
-                                        <li><a href="../contact/index.html">Contact</a></li>
-                                </ul>
-                        </nav>
-                        <section id="main">
-                                <header class="hero">
-                                        <span class="avatar"><img src="../images/oruga.jpg" alt="Portrait of El Oruga" /></span>
-                                        <h1>Content Hub</h1>
-                                        <p>Browse every drop from the El Oruga channel—long-form builds, signal reports, and mixes.</p>
-                                        <div class="cta-row">
-                                                <a class="btn" href="#video-library">Open the library</a>
-                                                <a class="btn" href="https://youtube.com" target="_blank" rel="noopener">Subscribe on YouTube</a>
-                                        </div>
-                                </header>
-                                <section id="video-library" aria-label="Video library" class="section-block">
-                                        <div class="section-header">
-                                                <h2>Latest videos</h2>
-                                                <p>Tap any card to get the full description plus an inline player.</p>
-                                        </div>
-                                        <div class="video-grid">
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg" alt="Cover for Signal Boost video" />
-                                                                <span class="video-topic">RevOps</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Signal Boost 001: RevOps Rituals</h3>
-                                                                <p class="video-description">Breaking down how I pair Salesforce data models with AI copilots so leadership always has the next best step.</p>
-                                                                <p class="video-tags"><span>Focus: CRM strategy</span><span>Runtime: 12 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="M7lc1UVf-VE" data-video-title="Signal Boost 001: RevOps Rituals" data-video-description="Breaking down how I pair Salesforce data models with AI copilots so leadership always has the next best step.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg" alt="Cover for Studio Frequencies session" />
-                                                                <span class="video-topic">Live mix</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Studio Frequencies: Floating Cities</h3>
-                                                                <p class="video-description">A live improvisation weaving ambient bass with generative visuals pulled from Luna&rsquo;s model garden.</p>
-                                                                <p class="video-tags"><span>Focus: Performance</span><span>Runtime: 45 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="jfKfPfyJRdk" data-video-title="Studio Frequencies: Floating Cities" data-video-description="A live improvisation weaving ambient bass with generative visuals pulled from Luna&rsquo;s model garden.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg" alt="Cover for Clanker build log" />
-                                                                <span class="video-topic">Hardware</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Clanker Build Log: Iteration 07</h3>
-                                                                <p class="video-description">Documenting the tactile interface, MIDI brain, and AI assisted tuning that powers the clanker rig.</p>
-                                                                <p class="video-tags"><span>Focus: Prototyping</span><span>Runtime: 18 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="aqz-KE-bpKQ" data-video-title="Clanker Build Log: Iteration 07" data-video-description="Documenting the tactile interface, MIDI brain, and AI assisted tuning that powers the clanker rig.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg" alt="Cover for field notes session" />
-                                                                <span class="video-topic">Field notes</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Field Notes: Salesforce Copilot in the Wild</h3>
-                                                                <p class="video-description">Walking through an onsite activation where Luna captures attendee input and syncs it back to CRM automations.</p>
-                                                                <p class="video-tags"><span>Focus: Events</span><span>Runtime: 9 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="ysz5S6PUM-U" data-video-title="Field Notes: Salesforce Copilot in the Wild" data-video-description="Walking through an onsite activation where Luna captures attendee input and syncs it back to CRM automations.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/bTqVqk7FSmY/hqdefault.jpg" alt="Cover for human in the loop talk" />
-                                                                <span class="video-topic">Talk</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Human In The Loop @ Sesh</h3>
-                                                                <p class="video-description">A keynote on designing rituals where AI handles logistics and humans stay in storytelling mode.</p>
-                                                                <p class="video-tags"><span>Focus: Strategy</span><span>Runtime: 22 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="bTqVqk7FSmY" data-video-title="Human In The Loop @ Sesh" data-video-description="A keynote on designing rituals where AI handles logistics and humans stay in storytelling mode.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                                <article class="video-card">
-                                                        <div class="video-thumb">
-                                                                <img src="https://img.youtube.com/vi/ScMzIvxBSi4/hqdefault.jpg" alt="Cover for behind the booth vlog" />
-                                                                <span class="video-topic">Vlog</span>
-                                                        </div>
-                                                        <div class="video-meta">
-                                                                <h3>Behind The Booth: Ritual Load-in</h3>
-                                                                <p class="video-description">Follow the full load-in flow from flight cases to projection mapping plus the prompts used to brief Luna.</p>
-                                                                <p class="video-tags"><span>Focus: Operations</span><span>Runtime: 16 min</span></p>
-                                                                <button class="btn watch-btn" data-video-id="ScMzIvxBSi4" data-video-title="Behind The Booth: Ritual Load-in" data-video-description="Follow the full load-in flow from flight cases to projection mapping plus the prompts used to brief Luna.">Watch video</button>
-                                                        </div>
-                                                </article>
-                                        </div>
-                                </section>
-                        </section>
-                        <footer id="footer">
-                                <div class="socials" role="group" aria-label="Social links">
-                                        <a href="https://www.instagram.com/oruga_d_karmik/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="social-label">Instagram</span></a>
-                                        <a href="https://www.tiktok.com/@oruga420" aria-label="TikTok" target="_blank" rel="noopener">
-                                                <svg class="icon icon-tiktok" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
-                                                <span class="social-label">TikTok</span>
-                                        </a>
-                                        <a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
-                                        <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
-                                </div>
-                                <ul class="copyright">
-                                        <li>&copy; El Oruga | AI Wizard | Human In The Loop @Sesh</li>
-                                </ul>
-                        </footer>
-                </div>
-                <div class="social-rail" aria-label="Social links">
-                        <a href="https://www.instagram.com/oruga_d_karmik/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="social-label">Instagram</span></a>
-                        <a href="https://www.tiktok.com/@oruga420" aria-label="TikTok" target="_blank" rel="noopener">
-                                <svg class="icon icon-tiktok" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
-                                <span class="social-label">TikTok</span>
-                        </a>
-                        <a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
-                        <a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
-                </div>
-                <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="video-modal-title">
-                        <div class="modal-content">
-                                <button class="modal-close" id="modal-close" aria-label="Close video">&times;</button>
-                                <h3 id="video-modal-title">Video title</h3>
-                                <p id="video-modal-description">Video description</p>
-                                <div class="responsive-embed">
-                                        <iframe id="video-iframe" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </div>
-                        </div>
-                </div>
-                <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-                <script type="module" src="../assets/js/slider.js"></script>
-                <script type="module" src="../assets/js/apps.js"></script>
-                <script>
-                        if ('addEventListener' in window) {
-                                window.addEventListener('load', function () {
-                                        document.body.className = document.body.className.replace(/\bis-preload\b/, '');
-                                });
-                                document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-                        }
-
-                        const modal = document.getElementById('video-modal');
-                        const modalClose = document.getElementById('modal-close');
-                        const iframe = document.getElementById('video-iframe');
-                        const modalTitle = document.getElementById('video-modal-title');
-                        const modalDescription = document.getElementById('video-modal-description');
-
-                        function openModal(videoId, title, description) {
-                                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-                                modalTitle.textContent = title;
-                                modalDescription.textContent = description;
-                                modal.classList.add('is-visible');
-                                modal.setAttribute('aria-hidden', 'false');
-                                modalClose.focus();
-                        }
-
-                        function closeModal() {
-                                modal.classList.remove('is-visible');
-                                modal.setAttribute('aria-hidden', 'true');
-                                iframe.src = '';
-                        }
-
-                        document.querySelectorAll('.watch-btn').forEach((btn) => {
-                                btn.addEventListener('click', () => {
-                                        const { videoId, videoTitle, videoDescription } = btn.dataset;
-                                        openModal(videoId, videoTitle, videoDescription);
-                                });
-                        });
-
-                        modalClose.addEventListener('click', closeModal);
-                        modal.addEventListener('click', (event) => {
-                                if (event.target === modal) {
-                                        closeModal();
-                                }
-                        });
-
-                        document.addEventListener('keydown', (event) => {
-                                if (event.key === 'Escape' && modal.classList.contains('is-visible')) {
-                                        closeModal();
-                                }
-                        });
-                </script>
-        </body>
+	<head>
+		<title>Content - El Oruga</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/oruga-ui.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<nav class="navbar" aria-label="Primary">
+				<div class="logo"><a href="../index.html">El Oruga</a></div>
+				<ul class="menu">
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="../apps/index.html">Apps</a></li>
+					<li><a href="./index.html" aria-current="page">Content</a></li>
+					<li><a href="../talk-to-luna/index.html">Talk to Luna</a></li>
+					<li><a href="../about/index.html">About</a></li>
+					<li><a href="../contact/index.html">Contact</a></li>
+				</ul>
+			</nav>
+			<main>
+				<header class="page-hero">
+					<p class="eyebrow">Content Drops</p>
+					<h1>Studio Stream</h1>
+					<p>Behind-the-scenes clips, live sessions, and walkthroughs from the El Oruga channel. Catch the newest drops on page one or flip through the back catalogue.</p>
+				</header>
+				<section class="section-block">
+					<div id="video-feed" class="video-feed" aria-live="polite"></div>
+					<div class="video-pager" role="group" aria-label="Video pagination">
+						<button id="videos-prev" class="pager-btn" type="button">Prev</button>
+						<div class="pager-status" id="videos-page-indicator">Page 1</div>
+						<button id="videos-next" class="pager-btn" type="button">Next</button>
+					</div>
+					<p class="pager-hint">Tip: Use your arrow keys or tap the controls to skim through the archive.</p>
+					<noscript>
+						<p class="empty-state">Enable JavaScript to browse the latest YouTube drops.</p>
+					</noscript>
+				</section>
+			</main>
+			<footer id="footer">
+				<div class="socials" role="group" aria-label="Social links">
+					<a href="https://www.instagram.com/oruga_d_karmik/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="social-label">Instagram</span></a>
+					<a href="https://www.tiktok.com/@oruga420" aria-label="TikTok" target="_blank" rel="noopener">
+						<svg class="icon icon-tiktok" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+						<span class="social-label">TikTok</span>
+					</a>
+					<a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
+					<a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
+				</div>
+				<ul class="copyright">
+					<li>&copy; El Oruga | AI Wizard | Human In The Loop @Sesh</li>
+				</ul>
+			</footer>
+		</div>
+		<div class="social-rail" aria-label="Social links">
+			<a href="https://www.instagram.com/oruga_d_karmik/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span class="social-label">Instagram</span></a>
+			<a href="https://www.tiktok.com/@oruga420" aria-label="TikTok" target="_blank" rel="noopener">
+				<svg class="icon icon-tiktok" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path></svg>
+				<span class="social-label">TikTok</span>
+			</a>
+			<a href="https://github.com/Oruga420" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i><span class="social-label">GitHub</span></a>
+			<a href="https://www.linkedin.com/in/amorac/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="social-label">LinkedIn</span></a>
+		</div>
+		<script type="module" src="../assets/js/content.js"></script>
+		<script>
+			if ('addEventListener' in window) {
+				window.addEventListener('load', function () {
+					document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+				});
+				document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+			}
+		</script>
+	</body>
 </html>
