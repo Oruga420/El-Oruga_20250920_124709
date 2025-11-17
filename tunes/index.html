@@ -113,5 +113,13 @@
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 		<script type="module" src="../assets/js/slider.js"></script>
+		<script>
+			if ('addEventListener' in window) {
+				window.addEventListener('load', function () {
+					document.body.className = document.body.className.replace(/\bis-preload\b/, '');
+				});
+				document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+			}
+		</script>
 	</body>
 </html>
