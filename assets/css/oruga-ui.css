@@ -84,7 +84,8 @@ main {
 }
 
 #main {
-  max-width: min(760px, 94vw);
+  width: 100%;
+  max-width: min(1080px, 94vw);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
