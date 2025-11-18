@@ -1050,6 +1050,63 @@ main > header {
   font-size: 0.85rem;
 }
 
+.about-video {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.about-video__frame {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 40px 90px -45px rgba(0, 0, 0, 0.9);
+}
+
+.about-video__frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.about-collapse .collapse-toggle {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-size: 1rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.about-collapse .collapse-toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.collapse-body {
+  margin-top: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.collapse-body.is-open {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  max-height: 9999px;
+  opacity: 1;
+}
+
 .embed-grid,
 .album-grid {
   display: grid;
